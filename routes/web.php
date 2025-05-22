@@ -19,8 +19,12 @@ Route::get('/admin/dashboard/service-provider-create',function(){
 Route::get('/service-provider/dashboard',function(){
     return view('service_provider_pages.service_provider_dashboard_view');
 });
-
-
+Route::get('/service-provider/dashboard/update',function(){
+    return view('service_provider_pages.service_provider_update_view');
+});
+Route::get('/service-provider/dashboard/compliant-list',function(){
+    return view('service_provider_pages.compliant_list_view');
+});
 // user dashboard
 Route::get('/user/dashboard',function(){
     return view('user_pages.user_dashboard_view');

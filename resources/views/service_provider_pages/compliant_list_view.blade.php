@@ -4,6 +4,7 @@
 @include('components.service_provider.dashboard.sidebar')
 <div class="page-wrapper">
     <div class="content container-fluid">
+        @include('components.service_provider.crud.compliant_list')
         @include('components.dashboard_main.footer')
     </div>
 </div>
