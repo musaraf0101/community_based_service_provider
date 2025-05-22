@@ -55,8 +55,10 @@ class AdminController extends Controller
         return view('admin_pages.create_service_provider_view');
     }
     public function userlist()
-    {
-        return view('admin_pages.user_list_view');
+    {   
+        $users = UserData::all();
+
+        return view('admin_pages.user_list_view',compact('users'));
     }
     public function serviceproviderlist()
     {
