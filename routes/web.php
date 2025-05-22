@@ -19,6 +19,9 @@ Route::get('/admin/dashboard/user-list',function(){
 Route::get('/admin/dashboard/service-provider-list',function(){
     return view('admin_pages.service_provider_list_view');
 });
+Route::get('/admin/dashboard/compliant-list',function(){
+    return view('admin_pages.compliant_list_view');
+});
 //service provider dashboard
 
 Route::get('/service-provider/dashboard',function(){

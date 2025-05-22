@@ -27,7 +27,7 @@
                             <a href="#"><i class="fas fa-building"></i> <span>Compliant</span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="#">Compliant List</a></li>
+                                <li><a href="/admin/dashboard/compliant-list">Compliant List</a></li>
                             </ul>
                         </li>
                     </ul>
