@@ -17,7 +17,7 @@
                             <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>Service Provider</span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="#">Service Provider List</a></li>
+                                <li><a href="/user/dashboard/service-provider-list">Service Provider List</a></li>
                                 <li><a href="/user/dashboard/compliant-create">Service Provider Compliant</a></li>
                             </ul>
                         </li>
