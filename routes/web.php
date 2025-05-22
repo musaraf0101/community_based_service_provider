@@ -29,3 +29,6 @@ Route::get('/service-provider/dashboard/compliant-list',function(){
 Route::get('/user/dashboard',function(){
     return view('user_pages.user_dashboard_view');
 });
+Route::get('/user/dashboard/compliant-create',function(){
+    return view('user_pages.create_compliant_view');
+});
