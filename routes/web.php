@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ServiceProviderController;
 use Illuminate\Support\Facades\Route;
 /* --------------------------------------dashboard------------------------------------- */
 
@@ -13,18 +14,10 @@ Route::get('/admin/dashboard/service-provider-list',[AdminController::class,'ser
 Route::get('/admin/dashboard/compliant-list',[AdminController::class,'admincompliantlist'])->name('Admin.admincompliantlist');
 
 //service provider dashboard
-Route::get('/service-provider/dashboard',function(){
-    return view('service_provider_pages.service_provider_dashboard_view');
-});
-Route::get('/service-provider/dashboard/update',function(){
-    return view('service_provider_pages.service_provider_update_view');
-});
-Route::get('/service-provider/dashboard/compliant-list',function(){
-    return view('service_provider_pages.compliant_list_view');
-});
-Route::get('/service-provider/dashboard/book-list',function(){
-    return view('service_provider_pages.book_list_view');
-});
+Route::get('/service-provider/dashboard',[ServiceProviderController::class,'index'])->name('ServiceProvider.index');
+Route::get('/service-provider/dashboard/update',[ServiceProviderController::class,'serviceproviderUpdate'])->name('ServiceProvider.serviceproviderUpdate');
+Route::get('/service-provider/dashboard/compliant-list',[ServiceProviderController::class,'servideproviderCompliantlist'])->name('ServiceProvider.servideproviderCompliantlist');
+Route::get('/service-provider/dashboard/book-list',[ServiceProviderController::class,'serviceproviderBooklist'])->name('ServiceProvider.serviceproviderBooklist');
 
 // user dashboard
 Route::get('/user/dashboard',function(){
