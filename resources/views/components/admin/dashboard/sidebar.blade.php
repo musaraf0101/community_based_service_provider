@@ -12,7 +12,7 @@
                                     class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="#">User List</a></li>
-                                <li><a href="#">User Add</a></li>
+                                <li><a href="/admin/dashboard/user-create">User Add</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
@@ -20,7 +20,7 @@
                                     class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="#">Service Provider List</a></li>
-                                <li><a href="/service-provider/create">Service Provider Add</a></li>
+                                <li><a href="/admin/dashboard/service-provider-create">Service Provider Add</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
