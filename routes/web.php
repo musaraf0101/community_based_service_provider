@@ -13,7 +13,9 @@ Route::get('/admin/dashboard/user-create',function(){
 Route::get('/admin/dashboard/service-provider-create',function(){
     return view('admin_pages.create_service_provider_view');
 });
-
+Route::get('/admin/dashboard/user-list',function(){
+    return view('admin_pages.user_list_view');
+});
 //service provider dashboard
 
 Route::get('/service-provider/dashboard',function(){

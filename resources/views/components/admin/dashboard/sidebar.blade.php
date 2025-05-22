@@ -11,7 +11,7 @@
                             <a href="#"><i class="fas fa-graduation-cap"></i> <span>User</span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="#">User List</a></li>
+                                <li><a href="/admin/dashboard/user-list">User List</a></li>
                                 <li><a href="/admin/dashboard/user-create">User Add</a></li>
                             </ul>
                         </li>
