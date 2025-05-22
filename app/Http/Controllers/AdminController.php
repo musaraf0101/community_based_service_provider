@@ -31,7 +31,7 @@ class AdminController extends Controller
         //img upload code
         if ($request->hasFile('img')) {
             $pictureFile = $request->file('img');
-            $pictureFileName = time() . $pictureFile->extension();
+            $pictureFileName = time() .".". $pictureFile->extension();
             $pictureFile->move(public_path('upload_img'), $pictureFileName);
         } else {
             $pictureFileName = null;
