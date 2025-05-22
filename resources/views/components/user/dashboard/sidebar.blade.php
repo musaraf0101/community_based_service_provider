@@ -10,7 +10,7 @@
                                     class="menu-arrow"></span></a>
                             <ul>
 
-                                <li><a href="#">User Update</a></li>
+                                <li><a href="/user/dashboard/update">User Update</a></li>
                             </ul>
                         </li>
                         <li class="submenu">

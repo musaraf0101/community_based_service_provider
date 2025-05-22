@@ -32,3 +32,6 @@ Route::get('/user/dashboard',function(){
 Route::get('/user/dashboard/compliant-create',function(){
     return view('user_pages.create_compliant_view');
 });
+Route::get('/user/dashboard/update',function(){
+    return view('user_pages.update_user_view');
+});
