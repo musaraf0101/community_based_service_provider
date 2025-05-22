@@ -4,11 +4,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ServiceProviderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-/* --------------------------------------dashboard------------------------------------- */
+/* ----------------------------------------------------------dashboard---------------------------------------------------------------------- */
 
 // admin dashboard
 Route::get('/admin/dashboard',[AdminController::class,'index'])->name('Admin.index');
 Route::get('/admin/dashboard/user-create',[AdminController::class,'usercreate'])->name('Admin.usercreate');
+Route::post('/admin/dashboard/user-store',[AdminController::class,'userstore'])->name('Admin.userstore');
 Route::get('/admin/dashboard/service-provider-create',[AdminController::class,'serviceproviderCreate'])->name('Admin.serviceproviderCreate');
 Route::get('/admin/dashboard/user-list',[AdminController::class,'userlist'])->name('Admin.userlist');
 Route::get('/admin/dashboard/service-provider-list',[AdminController::class,'serviceproviderlist'])->name('Admin.serviceproviderlist');
@@ -26,4 +27,4 @@ Route::get('/user/dashboard/compliant-create',[UserController::class,'compliantc
 Route::get('/user/dashboard/update',[UserController::class,'userupdate'])->name('User.userupdate');
 Route::get('/user/dashboard/service-provider-list',[UserController::class,'userserviceproviderlist'])->name('User.userserviceproviderlist');
 Route::get('/user/dashboard/book',[UserController::class,'userbook'])->name('User.userbook');
-/* ------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------------------- */
