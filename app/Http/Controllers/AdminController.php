@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompliantData;
 use App\Models\ServiceProviderData;
 use App\Models\UserData;
 use Illuminate\Http\Request;
@@ -108,7 +109,8 @@ class AdminController extends Controller
         return view('admin_pages.service_provider_list_view',compact('providers'));
     }
     public function admincompliantlist()
-    {
-        return view('admin_pages.compliant_list_view');
+    {   
+        $compliants = CompliantData::all();
+        return view('admin_pages.compliant_list_view',compact('compliants'));
     }
 }
