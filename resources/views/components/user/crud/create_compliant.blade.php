@@ -1,57 +1,84 @@
-<div class="container mt-5 user-form">
-    <div class="row">
-        <h5>Compliant</h5>
-        <br />
-        <div class="col-md-12 form-div">
-            <form action="#" method="post">
-
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <label for="username" class="form-label">User Name</label>
-                        <input type="text" name="username" id="username" class="form-control" placeholder="Enter User Name">
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card comman-shadow">
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title student-info">Compliant<span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Full Name <span class="login-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Full Name">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms calendar-icon">
+                                <label>Service Date <span class="login-danger">*</span></label>
+                                <input class="form-control datetimepicker" type="text" placeholder="DD-MM-YYYY">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>E-Mail <span class="login-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Email Address">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Phone Number <span class="login-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Location <span class="login-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Location">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Compliant <span class="login-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Compliant">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Service Provider Name <span class="login-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Service Provider Name">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Profession<span class="login-danger">*</span></label>
+                                <select class="form-control select">
+                                    <option>Select Profession</option>
+                                    <option>Plumber</option>
+                                    <option>Electrician</option>
+                                    <option>Mechanic</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group students-up-files">
+                                <label>Upload Photo (150px X 150px)</label>
+                                <div class="uplod">
+                                    <label class="file-upload image-upbtn mb-0">
+                                        Choose File <input type="file">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="student-submit">
+                                <button type="submit" class="btn btn-dark">Create</button>
+                                <button type="reset" class="btn btn-danger">Clear All</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <label for="phoneNumber" class="form-label">Enter Phone Number</label>
-                        <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="Enter Phone Number">
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <label for="useremail" class="form-label">Enter User Email</label>
-                        <input type="text" name="useremail" id="useremail" class="form-control" placeholder="Enter User Email">
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <label for="sname" class="form-label">Service Provider Name</label>
-                        <input type="text" name="sname" id="sname" class="form-control" placeholder="Enter Service Provider Name">
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <label for="compliant" class="form-label">Compliant</label>
-                        <input type="text" name="compliant" id="compliant" class="form-control" placeholder="Enter Compliant">
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <label for="image" class="form-label">Enter Compilant Image</label>
-                        <input type="file" name="image" id="image" class="form-control">
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-dark">Save</button>
-                    <button type="reset" class="btn btn-danger">Clear All</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
