@@ -19,6 +19,7 @@
                             <ul>
                                 <li><a href="/user/dashboard/service-provider-list">Service Provider List</a></li>
                                 <li><a href="/user/dashboard/compliant-create">Service Provider Compliant</a></li>
+                                <li><a href="/user/dashboard/book">Book</a></li>
                             </ul>
                         </li>
                         <li class="submenu">

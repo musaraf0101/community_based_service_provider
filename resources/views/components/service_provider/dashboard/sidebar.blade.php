@@ -9,7 +9,7 @@
                             <a href="#"><i class="fas fa-graduation-cap"></i> <span>Book</span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="#">Book List</a></li>
+                                <li><a href="/service-provider/dashboard/book-list">Book List</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
