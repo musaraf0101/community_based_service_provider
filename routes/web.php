@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ServiceProviderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 /* --------------------------------------dashboard------------------------------------- */
 
@@ -20,19 +21,9 @@ Route::get('/service-provider/dashboard/compliant-list',[ServiceProviderControll
 Route::get('/service-provider/dashboard/book-list',[ServiceProviderController::class,'serviceproviderBooklist'])->name('ServiceProvider.serviceproviderBooklist');
 
 // user dashboard
-Route::get('/user/dashboard',function(){
-    return view('user_pages.user_dashboard_view');
-});
-Route::get('/user/dashboard/compliant-create',function(){
-    return view('user_pages.create_compliant_view');
-});
-Route::get('/user/dashboard/update',function(){
-    return view('user_pages.update_user_view');
-});
-Route::get('/user/dashboard/service-provider-list',function(){
-    return view('user_pages.service_provider_list_view');
-});
-Route::get('/user/dashboard/book',function(){
-    return view('user_pages.service_provider_book_view');
-});
+Route::get('/user/dashboard',[UserController::class,'index'])->name('User.index');
+Route::get('/user/dashboard/compliant-create',[UserController::class,'compliantcreate'])->name('User.compliantcreate');
+Route::get('/user/dashboard/update',[UserController::class,'userupdate'])->name('User.userupdate');
+Route::get('/user/dashboard/service-provider-list',[UserController::class,'userserviceproviderlist'])->name('User.userserviceproviderlist');
+Route::get('/user/dashboard/book',[UserController::class,'userbook'])->name('User.userbook');
 /* ------------------------------------------------------------------------------------- */
