@@ -11,6 +11,7 @@ Route::get('/admin/dashboard',[AdminController::class,'index'])->name('Admin.ind
 Route::get('/admin/dashboard/user-create',[AdminController::class,'usercreate'])->name('Admin.usercreate');
 Route::post('/admin/dashboard/user-store',[AdminController::class,'userstore'])->name('Admin.userstore');
 Route::get('/admin/dashboard/service-provider-create',[AdminController::class,'serviceproviderCreate'])->name('Admin.serviceproviderCreate');
+Route::post('/admin/dashboard/service-provider-store',[AdminController::class,'serviceproviderstore'])->name('Admin.serviceproviderstore');
 Route::get('/admin/dashboard/user-list',[AdminController::class,'userlist'])->name('Admin.userlist');
 Route::get('/admin/dashboard/service-provider-list',[AdminController::class,'serviceproviderlist'])->name('Admin.serviceproviderlist');
 Route::get('/admin/dashboard/compliant-list',[AdminController::class,'admincompliantlist'])->name('Admin.admincompliantlist');

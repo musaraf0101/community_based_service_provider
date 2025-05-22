@@ -17,18 +17,21 @@
             </thead>
             <tbody>
               
-              <tr>
-                <td>1</td>
-                <td>Unkown</td>
-                <td>197894524587</td>
-                <td>Male</td>
-                <td>199705/05</td>
-                <td>Plumber</td>
-                <td>unkown@gmail.com</td>
-                <td>048784878</td>
-                <td>Kiniya</td>
-                <td><img src="#" alt="not found" style="width: 50px; height: 50px; object-fit: contain;"></td>
+            @foreach ($providers as $provider)
+               <tr>
+                <td>{{ $provider-> id}}</td>
+                <td>{{ $provider-> full_name}}</td>
+                <td>{{ $provider-> nic}}</td>
+                <td>{{ $provider-> gender}}</td>
+                <td>{{ $provider-> date_of_birth}}</td>
+                <td>{{ $provider-> profession}}</td>
+                <td>{{ $provider-> email}}</td>
+                <td>{{ $provider-> phone_number}}</td>
+                <td>{{ $provider-> location}}</td>
+                <td><img src="{{ $provider-> img}}" alt="not found" style="width: 50px; height: 50px; object-fit: contain;"></td>
               </tr>
+            @endforeach
+             
 
             </tbody>
           </table>
