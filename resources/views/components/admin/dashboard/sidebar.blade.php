@@ -19,7 +19,7 @@
                             <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>Service Provider</span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="#">Service Provider List</a></li>
+                                <li><a href="/admin/dashboard/service-provider-list">Service Provider List</a></li>
                                 <li><a href="/admin/dashboard/service-provider-create">Service Provider Add</a></li>
                             </ul>
                         </li>
