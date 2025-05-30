@@ -2,9 +2,93 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ServiceProvider;
 use Illuminate\Http\Request;
 
 class AdminServiceProviderController extends Controller
 {
-    //
+    public function Create()
+    {
+
+        return view('admin_pages.create_service_provider_view');
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'nic' => 'required|unique:service_provider_data,nic',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'profession' => 'required',
+            'email' => 'required|unique:service_provider_data,email',
+            'phone_number' => 'required|digits:10|unique:service_provider_data,phone_number',
+            'location' => 'required',
+            // 'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+
+        //img upload
+        // if ($request->hasFile('img')) {
+        //     $pictureFIle = $request->file('img');
+        //     $pictureFIleName = time() . "." . $pictureFIle->extension();
+        //     $pictureFIle->move(public_path('upload_img'), $pictureFIleName);
+        // } else {
+        //     $pictureFIleName = null;
+        // }
+
+        ServiceProvider::create([
+            'full_name' => $request->full_name,
+            'nic' => $request->nic,
+            'gender' => $request->gender,
+            'date_of_birth' => $request->date_of_birth,
+            'profession' => $request->profession,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'location' => $request->location,
+            // 'img' => $pictureFIleName,
+        ]);
+
+        return redirect()->route('Admin.serviceproviderCreate');
+        // dd($request);
+    }
+    public function Update(Request $request, $id)
+    {
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'nic' => 'required|unique:service_provider_data,nic,' . $id,
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'profession' => 'required',
+            'email' => 'required|unique:service_provider_data,email,' . $id,
+            'phone_number' => 'required|digits:10|unique:service_provider_data,phone_number,' . $id,
+            'location' => 'required'
+        ]);
+
+        // ServiceProviderData::create([
+        //     'full_name' => $request->full_name,
+        //     'nic' => $request->nic,
+        //     'gender' => $request->gender,
+        //     'date_of_birth' => $request->date_of_birth,
+        //     'profession' => $request->profession,
+        //     'email' => $request->email,
+        //     'phone_number' => $request->phone_number,
+        //     'location' => $request->location
+        // ]);
+        $provider = ServiceProvider::find($id);
+        $provider->update($request->all());
+        return redirect()->route('Admin.userEdit', $id);
+    }
+    public function delete($id)
+    {
+        $provider = ServiceProvider::find($id);
+        $provider->delete();
+        return redirect()->route('Admin.serviceproviderlist', compact('provider'));
+    }
+
+
+    public function serviceproviderlist()
+    {
+        $providers = ServiceProvider::all();
+
+        return view('admin_pages.service_provider_list_view', compact('providers'));
+    }
 }

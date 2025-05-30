@@ -70,4 +70,12 @@ class AdminUserController extends Controller
         $user->delete();
         return redirect()->route('Admin.userlist');
     }
+
+
+    public function userlist()
+    {
+        $users = UserData::all();
+
+        return view('admin_pages.user_list_view', compact('users'));
+    }
 }
