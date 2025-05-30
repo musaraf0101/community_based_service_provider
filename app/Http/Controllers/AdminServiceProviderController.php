@@ -47,8 +47,11 @@ class AdminServiceProviderController extends Controller
             // 'img' => $pictureFIleName,
         ]);
 
-        return redirect()->route('Admin.serviceproviderCreate');
+        return redirect()->route('AdminServiceProvider.create');
         // dd($request);
+    }
+    public function edit($id){
+        
     }
     public function Update(Request $request, $id)
     {
