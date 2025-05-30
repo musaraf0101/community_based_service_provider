@@ -44,4 +44,30 @@ class AdminUserController extends Controller
         ]);
         return redirect()->route('Admin.usercreate');
     }
+    public function edit($id)
+    {
+        $user = UserData::find($id);
+        return view('admin_pages.update_user_view', compact('user'));
+    }
+    public function Update(Request $request, $id)
+    {
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'nic' => 'required|unique:user_data,nic,' . $id,
+            'gender' => "required|in:male,female,others",
+            'date_of_birth' => 'required',
+            'email' => 'required|email|unique:user_data,email,' . $id,
+            'phone_number' => 'required|digits:10|unique:user_data,phone_number,' . $id,
+            'location' => 'required',
+        ]);
+        $user = UserData::find($id);
+        $user->update($request->all());
+        return redirect()->route('Admin.userEdit', $id);
+    }
+    public function delete($id)
+    {
+        $user = UserData::find($id);
+        $user->delete();
+        return redirect()->route('Admin.userlist');
+    }
 }
