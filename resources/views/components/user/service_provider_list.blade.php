@@ -28,8 +28,8 @@
         <td>{{ $provider-> phone_number}}</td>
         <td>{{ $provider-> location}}</td>
         <td>
-          <a href="" class="btn btn-dark btn-sm"><i class="bi bi-pencil-square"></i></a>
-          <form action="{{route('Admin.serviceproviderDelete',$provider->id)}}" method="post">
+          <a href="{{route('AdminServiceProvider.edit',$provider->id)}}" class="btn btn-dark btn-sm"><i class="bi bi-pencil-square"></i></a>
+          <form action="{{route('AdminServiceProvider.delete',$provider->id)}}" method="post">
             @csrf
             @method('DELETE')
             <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>

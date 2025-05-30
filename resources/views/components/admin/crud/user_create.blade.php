@@ -64,7 +64,7 @@
                                 <input class="form-control" type="text" name="location" id="location" value="{{old('location')}}" placeholder="Enter Location">
                             </div>
                         </div>
-                        <div class="col-12 col-sm-4">
+                        <!-- <div class="col-12 col-sm-4">
                             <div class="form-group students-up-files">
                                 <label>Upload Photo (150px X 150px)</label>
                                 <div class="uplod">
@@ -73,7 +73,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-12">
                             <div class="student-submit">
                                 <button type="submit" class="btn btn-primary">Create</button>

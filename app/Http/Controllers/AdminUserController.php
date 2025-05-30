@@ -42,7 +42,7 @@ class AdminUserController extends Controller
             'location' => $request->location,
             // 'img' => $pictureFileName,
         ]);
-        return redirect()->route('Admin.usercreate');
+        return redirect()->route('AdminUser.index');
     }
     public function edit($id)
     {
@@ -62,13 +62,13 @@ class AdminUserController extends Controller
         ]);
         $user = UserData::find($id);
         $user->update($request->all());
-        return redirect()->route('Admin.userEdit', $id);
+        return redirect()->route('Admin.userEdit', $id, compact('user'));
     }
     public function delete($id)
     {
         $user = UserData::find($id);
         $user->delete();
-        return redirect()->route('Admin.userlist');
+        return redirect()->route('AdminUser.userlist');
     }
 
 

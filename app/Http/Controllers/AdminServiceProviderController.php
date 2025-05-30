@@ -16,12 +16,12 @@ class AdminServiceProviderController extends Controller
     {
         $request->validate([
             'full_name' => 'required|string|max:255',
-            'nic' => 'required|unique:service_provider_data,nic',
+            'nic' => 'required|unique:service_providers,nic',
             'gender' => 'required',
             'date_of_birth' => 'required',
             'profession' => 'required',
-            'email' => 'required|unique:service_provider_data,email',
-            'phone_number' => 'required|digits:10|unique:service_provider_data,phone_number',
+            'email' => 'required|unique:service_providers,email',
+            'phone_number' => 'required|digits:10|unique:service_providers,phone_number',
             'location' => 'required',
             // 'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
@@ -51,7 +51,8 @@ class AdminServiceProviderController extends Controller
         // dd($request);
     }
     public function edit($id){
-        
+        $provider = ServiceProvider::find($id);
+        return view('admin_pages.update_service_provider_view',compact('provider'));
     }
     public function Update(Request $request, $id)
     {
@@ -78,13 +79,13 @@ class AdminServiceProviderController extends Controller
         // ]);
         $provider = ServiceProvider::find($id);
         $provider->update($request->all());
-        return redirect()->route('Admin.userEdit', $id);
+        return redirect()->route('Admin.userEdit', $id , compact('provider'));
     }
     public function delete($id)
     {
         $provider = ServiceProvider::find($id);
         $provider->delete();
-        return redirect()->route('Admin.serviceproviderlist', compact('provider'));
+        return redirect()->route('Admin.serviceproviderlist');
     }
 
 

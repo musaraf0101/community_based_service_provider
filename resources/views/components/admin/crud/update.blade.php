@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <div class="card comman-shadow">
             <div class="card-body">
-                <form action="{{route('AdminUser.update',$user->id)}}" method="post">
+                <form action="{{route('AdminServiceProvider.update',$provider->id)}}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -12,13 +12,13 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Full Name <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="full_name" value="{{$user->full_name}}" placeholder="Enter Full Name">
+                                <input class="form-control" type="text" name="full_name" value="{{$provider->full_name}}" placeholder="Enter Full Name">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>NIC Number <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="nic" value="{{$user->nic}}" placeholder="Enter NIC Number">
+                                <input class="form-control" type="text" name="nic" value="{{$provider->nic}}" placeholder="Enter NIC Number">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
@@ -35,25 +35,36 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms calendar-icon">
                                 <label>Date Of Birth <span class="login-danger">*</span></label>
-                                <input class="form-control datetimepicker" type="text" name="date_of_birth" value="{{$user->date_of_birth}}" placeholder="DD-MM-YYYY">
+                                <input class="form-control datetimepicker" type="text" name="date_of_birth" value="{{$provider->date_of_birth}}" placeholder="DD-MM-YYYY">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Profession <span class="login-danger">*</span></label>
+                                <select class="form-control select" name="profession">
+                                    <option>Please Select Profession </option>
+                                    <option value="plumber">Plumber</option>
+                                    <option value="painter">Painter</option>
+                                    <option value="mechanic">Mechanic</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>E-Mail <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="email" value="{{$user->email}}" placeholder="Enter Email Address">
+                                <input class="form-control" type="text" name="email" value="{{$provider->email}}" placeholder="Enter Email Address">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Phone </label>
-                                <input class="form-control" type="text" name="phone_number" value="{{$user->phone_number}}" placeholder="Enter Phone Number">
+                                <input class="form-control" type="text" name="phone_number" value="{{$provider->phone_number}}" placeholder="Enter Phone Number">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Location </label>
-                                <input class="form-control" type="text" name="location" value="{{$user->location}}" placeholder="Enter Location">
+                                <input class="form-control" type="text" name="location" value="{{$provider->location}}" placeholder="Enter Location">
                             </div>
                         </div>
                         <!-- <div class="col-12 col-sm-4">
