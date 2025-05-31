@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'index'])->name('Home.index');
 Route::get('/contact-us',[ContactController::class,'index'])->name('Contact.index');
 Route::post('/contact-us/send',[ContactController::class,'store'])->name('Contact.store');
+Route::get('/view/service-provider-details',[HomeController::class,'viewServiceProvider'])->name('Home.viewServiceProvider');
 
 /* ----------------------------------------------------------dashboard---------------------------------------------------------------------- */
 
