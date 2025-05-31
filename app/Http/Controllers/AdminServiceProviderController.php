@@ -58,12 +58,12 @@ class AdminServiceProviderController extends Controller
     {
         $request->validate([
             'full_name' => 'required|string|max:255',
-            'nic' => 'required|unique:service_provider_data,nic,' . $id,
+            'nic' => 'required|unique:service_providers,nic,' . $id,
             'gender' => 'required',
             'date_of_birth' => 'required',
             'profession' => 'required',
-            'email' => 'required|unique:service_provider_data,email,' . $id,
-            'phone_number' => 'required|digits:10|unique:service_provider_data,phone_number,' . $id,
+            'email' => 'required|unique:service_providers,email,' . $id,
+            'phone_number' => 'required|digits:10|unique:service_providers,phone_number,' . $id,
             'location' => 'required'
         ]);
 
