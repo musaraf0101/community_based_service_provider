@@ -13,7 +13,6 @@
                             <ul>
                                 <li><a href="/admin/dashboard/user-list">User List</a></li>
                                 <li><a href="/admin/dashboard/user-create">User Add</a></li>
-                                <li><a href="/admin/dashboard/user-edit/{$id}">User Update</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
