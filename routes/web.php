@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminServiceProviderController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ServiceProviderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,5 +32,25 @@ Route::get('/admin/dashboard/service-provider-edit/{id}', [AdminServiceProviderC
 Route::put('/admin/dashboard/service-provider-update/{id}', [AdminServiceProviderController::class, 'update'])->name('AdminServiceProvider.update');//error
 Route::delete('/admin/dashboard/service-provider-delete/{id}', [AdminServiceProviderController::class, 'delete'])->name('AdminServiceProvider.delete');
 Route::get('/admin/dashboard/service-provider-list', [AdminServiceProviderController::class, 'serviceproviderlist'])->name('AdminServiceProvider.serviceproviderlist');
+
+
+//service provider dashboard
+
+Route::get('/service-provider/dashboard',[ServiceProviderController::class,'index'])->name('ServiceProvider.index');
+Route::get('/service-provider/dashboard/edit/{id}',[ServiceProviderController::class,'edit'])->name('ServiceProvider.edit');
+Route::put('/service-provider/dashboard/update/{id}',[ServiceProviderController::class,'update'])->name('ServiceProvider.update');
+Route::get('/service-provider/dashboard/compliant-list',[ServiceProviderController::class,'compliantList'])->name('ServiceProvider.compliantList');
+Route::get('/service-provider/dashboard/book-list',[ServiceProviderController::class,'bookList'])->name('ServiceProvider.bookList');
+
+
+//User dashboard
+Route::get('/user/dashboard',[UserController::class,'index']);
+Route::get('/user/dashboard/compliant-create',[UserController::class,'compliantcreate'])->name('User.compliantcreate');
+Route::get('/user/dashboard/compliant-store',[UserController::class,'compliantstore'])->name('User.compliantstore');
+Route::get('/user/dashboard/edit/{id}',[UserController::class,'userEdit'])->name('User.userEdit');
+Route::put('/user/dashboard/update/{id}',[UserController::class ,'userupdate'])->name('User.userupdate');
+Route::get('/user/dashboard/service-provider-list',[UserController::class,'serviceproviderlist'])->name('User.serviceproviderlist');
+Route::get('/user/dashboard/book',[UserController::class,'userbook'])->name('User.userbook');
+
 
 /* -------------------------------------------------------------------------------------------------------------------------------------- */
