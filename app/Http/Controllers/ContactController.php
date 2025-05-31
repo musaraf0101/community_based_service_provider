@@ -16,13 +16,15 @@ class ContactController extends Controller
         $request->validate([
             'full_name' => 'required',
             'email' => 'required|email',
-            'phone_number' => 'required|digits:10'
+            'phone_number' => 'required|digits:10',
+            'message' => 'required',
         ]);
         Contact::create([
             'full_name' => $request->full_name,
             'email' => $request->email,
-            'phone_number' => $request->phone_number
+            'phone_number' => $request->phone_number,
+            'message' => $request->message,
         ]);
-        return redirect()-> route('Contact.index');
+        return redirect()->route('Contact.index');
     }
 }
