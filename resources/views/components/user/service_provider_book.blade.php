@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-12">
                             <div class="student-submit">
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary">Book</button>
                             </div>
                         </div>
                     </div>
