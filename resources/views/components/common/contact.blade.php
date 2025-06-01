@@ -2,8 +2,18 @@
     .container {
         margin-top: 150px;
     }
-    input{
+
+    input {
         text-align: center;
+    }
+
+    form {
+        padding: 40px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    label{
+        color: white;
     }
 </style>
 <div class="container text-center">
@@ -45,7 +55,7 @@
 
 
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-dark">Save Product</button>
+                    <button type="submit" class="btn btn-dark">Send Message</button>
                     <button type="reset" class="btn btn-danger">Clear All</button>
                 </div>
             </form>

@@ -2,6 +2,15 @@
     <div class="col-sm-12">
         <div class="card comman-shadow">
             <div class="card-body">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <form action="/user/dashboard/compliant-store" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -60,7 +69,7 @@
                                     <option value="mechanic">Mechanic</option>
                                 </select>
                             </div>
-                        </div>
+                        <!-- </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group students-up-files">
                                 <label>Upload Photo (150px X 150px)</label>
@@ -70,7 +79,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-12">
                             <div class="student-submit">
                                 <button type="submit" class="btn btn-dark">Create</button>
