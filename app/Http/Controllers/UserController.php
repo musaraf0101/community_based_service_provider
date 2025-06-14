@@ -83,7 +83,7 @@ class UserController extends Controller
     public function userbook()
     {
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('error',"Login as a user");
         }
         else{
             return view('user_pages.service_provider_book_view');
@@ -95,12 +95,12 @@ class UserController extends Controller
         $request->validate([
             'full_name' => 'required|string|max:255',
             'nic' => 'required|string|max:12',
-            'service_type' => 'required',
-            'email' => 'required',
+            'service_type' => 'required|in:Mechanic,Electrician,Plumber,Cleaner,Painter',
+            'email' => 'required|email',
             'phone_number' => 'required|digits:10',
             'location' => 'required|string|max:255',
             'date' => 'required|date|after_or_equal:today',
-            'time' => 'required'
+            'time' => 'required||unique:bookings,time'
         ]);
 
         Booking::create([

@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('full_name');
+            $table->string('nic');
+            $table->enum('service_type',['Mechanic','Electrician','Plumber','Cleaner','Painter']);
+            $table->string('email');
+            $table->integer('phone_number');
+            $table->string('location');
+            $table->date('date');
+            $table->string('time')->unique();
             $table->timestamps();
         });
     }
