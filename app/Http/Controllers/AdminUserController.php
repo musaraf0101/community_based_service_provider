@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\UserData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
@@ -14,13 +16,15 @@ class AdminUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'full_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'nic' => 'required|unique:user_data,nic',
             'gender' => "required|in:male,female,others",
             'date_of_birth' => 'required',
-            'email' => 'required|email|unique:user_data,email',
+            'email' => 'required|email',
+            'password' => 'required|string|confirmed|min:6',
             'phone_number' => 'required|digits:10|unique:user_data,phone_number',
             'location' => 'required',
+            'role' => 'required',
             // 'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ]);
         //img upload code
@@ -33,14 +37,21 @@ class AdminUserController extends Controller
         // }
         // dd($request);
         UserData::create([
-            'full_name' => $request->full_name,
+            'name' => $request->full_name,
             'nic' => $request->nic,
             'gender' => $request->gender,
-            'date_of_birth' => $request->date_of_birth,
             'email' => $request->email,
+            'date_of_birth' => $request->date_of_birth,
             'phone_number' => $request->phone_number,
             'location' => $request->location,
             // 'img' => $pictureFileName,
+        ]);
+
+        User::create([
+            'name' => $request->full_name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
         ]);
         return redirect()->route('AdminUser.index');
     }
@@ -52,7 +63,7 @@ class AdminUserController extends Controller
     public function Update(Request $request, $id)
     {
         $request->validate([
-            'full_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'nic' => 'required|unique:user_data,nic,' . $id,
             'gender' => "required|in:male,female,others",
             'date_of_birth' => 'required',

@@ -3,13 +3,13 @@
         <div class="card comman-shadow">
             <div class="card-body">
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
                 <form action="/admin/dashboard/user-store" method="post" enctype="multipart/form-data">
                     @csrf
@@ -20,13 +20,13 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Full Name <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="full_name" id="full_name" value="{{old('full_name')}}" placeholder="Enter Full Name">
+                                <input class="form-control" type="text" name="name" id="name" value="{{old('name')}}" placeholder="Enter Full Name">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>NIC Number <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="nic" id="nic"  value="{{old('nic')}}" placeholder="Enter NIC Number">
+                                <input class="form-control" type="text" name="nic" id="nic" value="{{old('nic')}}" placeholder="Enter NIC Number">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
@@ -43,7 +43,7 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms calendar-icon">
                                 <label>Date Of Birth <span class="login-danger">*</span></label>
-                                <input class="form-control datetimepicker" type="text" name="date_of_birth" id="date_of_birth" value="{{old('date_of_birth')}}"placeholder="DD-MM-YYYY">
+                                <input class="form-control datetimepicker" type="text" name="date_of_birth" id="date_of_birth" value="{{old('date_of_birth')}}" placeholder="DD-MM-YYYY">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
@@ -55,7 +55,30 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Phone Number</label>
-                                <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{old('phone_number')}}"placeholder="Enter Phone Number">
+                                <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{old('phone_number')}}" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Password</label>
+                                <input class="form-control" type="password" name="password" id="password" value="{{old('password')}}" placeholder="Enter password">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Confirm Password</label>
+                                <input class="form-control" type="password" name="password_confirmation" id="confirm_password" value="{{old('password_confirmation')}}" placeholder="Enter confirm password">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Role<span class="login-danger">*</span></label>
+                                <input list="role" name="role" class="form-control" placeholder="Select role" value="{{ old('role') }}">
+                                <datalist id="role">
+                                    <option value="admin">
+                                    <option value="user">
+                                    <option value="service_provider">
+                                </datalist>
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
