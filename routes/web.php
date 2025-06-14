@@ -74,19 +74,19 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
-    })->name('admin.dashboard');
+    })->name('Admin.index');
 });
 
 // User dashboard routes
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user/dashboard', function () {
         return view('user.dashboard');
-    })->name('user.dashboard');
+    })->name('User.index');
 });
 
 // Service Provider dashboard routes
 Route::middleware(['auth', 'role:service_provider'])->group(function () {
     Route::get('/provider/dashboard', function () {
         return view('provider.dashboard');
-    })->name('provider.dashboard');
+    })->name('ServiceProvider.index');
 });

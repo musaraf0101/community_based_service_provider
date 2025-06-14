@@ -4,7 +4,8 @@
 @include('components.admin.dashboard.sidebar')
 <div class="page-wrapper">
     <div class="content container-fluid">
-@include('components.dashboard_main.footer')
+        @include('components.admin.dashboard.dashboard')
+        @include('components.dashboard_main.footer')
     </div>
 </div>
 @endsection

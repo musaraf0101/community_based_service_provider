@@ -34,9 +34,9 @@ class RegisterController extends Controller
         Auth::login($user);
 
         return match ($user->role) {
-            'admin' => redirect()->route(''),
-            'service_provider' => redirect()->route(''),
-            default => redirect()->route(''),
+            'admin' => redirect()->route('Admin.index'),
+            'service_provider' => redirect()->route('ServiceProvider.index'),
+            default => redirect()->route('User.index'),
         };
     }
 }
