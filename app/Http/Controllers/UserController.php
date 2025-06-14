@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Compliant;
 use App\Models\ServiceProvider;
 use App\Models\UserData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -80,6 +82,38 @@ class UserController extends Controller
     }
     public function userbook()
     {
-        return view('user_pages.service_provider_book_view');
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        else{
+            return view('user_pages.service_provider_book_view');
+        }
+        
+    }
+    public function userbookStore(Request $request)
+    {
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'nic' => 'required|string|max:12',
+            'service_type' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required|digits:10',
+            'location' => 'required|string|max:255',
+            'date' => 'required|date|after_or_equal:today',
+            'time' => 'required'
+        ]);
+
+        Booking::create([
+            'full_name' => $request->full_name,
+            'nic' => $request->nic,
+            'service_type' => $request->service_type,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'location' => $request->location,
+            'date' => $request->date,
+            'time' => $request->time,
+        ]);
+
+        return redirect()->route('User.userbook');
     }
 }

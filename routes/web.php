@@ -9,6 +9,7 @@ use App\Http\Controllers\ServiceProviderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BookingController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -17,8 +18,9 @@ Route::get('/contact-us', [ContactController::class, 'index'])->name('Contact.in
 Route::post('/contact-us/send', [ContactController::class, 'store'])->name('Contact.store');
 Route::get('/view/service-provider-details', [HomeController::class, 'viewServiceProvider'])->name('Home.viewServiceProvider');
 
+
 /*------------- Auth Routes ---------------*/
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('Login.showLoginForm');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login-store', [LoginController::class, 'login'])->name('Login.login');
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('Register.showRegisterForm');
 Route::post('/register-store', [RegisterController::class, 'register'])->name('Register.register');
@@ -66,6 +68,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::put('/user/dashboard/update/{id}', [UserController::class, 'userupdate'])->name('User.userupdate');
     Route::get('/user/dashboard/service-provider-list', [UserController::class, 'serviceproviderlist'])->name('User.serviceproviderlist');
     Route::get('/user/dashboard/book', [UserController::class, 'userbook'])->name('User.userbook');
+    Route::post('/user/dashboard/store',[UserController::class,'userBookStore'])->name("User.userBookStore");
 });
 
 // Service Provider dashboard routes
