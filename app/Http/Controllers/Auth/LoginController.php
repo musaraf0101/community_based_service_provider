@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function index(){
-        return view('components.auth.login');
+    public function showLoginForm(){
+        return view('common_pages.auth.login_view');
     }
     public function login(Request $request){
         $credentials= $request->only('email','password');
@@ -29,6 +29,6 @@ class LoginController extends Controller
     }
     public function logout(){
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('Login.showLoginForm');
     }
 }
