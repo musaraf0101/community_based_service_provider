@@ -17,12 +17,13 @@ Route::get('/contact-us', [ContactController::class, 'index'])->name('Contact.in
 Route::post('/contact-us/send', [ContactController::class, 'store'])->name('Contact.store');
 Route::get('/view/service-provider-details', [HomeController::class, 'viewServiceProvider'])->name('Home.viewServiceProvider');
 
-
+/*------------- Auth Routes ---------------*/
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('Login.showLoginForm');
 Route::post('/login-store', [LoginController::class, 'login'])->name('Login.login');
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('Register.showRegisterForm');
 Route::post('/register-store', [RegisterController::class, 'register'])->name('Register.register');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+/*--------------------- Auth Routes --------------------*/
 
 /* ----------------------------------------------------------dashboard---------------------------------------------------------------------- */
 
