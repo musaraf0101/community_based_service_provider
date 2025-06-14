@@ -7,6 +7,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceProviderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('Home.index');
@@ -57,3 +60,33 @@ Route::get('/user/dashboard/book', [UserController::class, 'userbook'])->name('U
 
 
 /* -------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Admin dashboard routes
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+});
+
+// User dashboard routes
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/user/dashboard', function () {
+        return view('user.dashboard');
+    })->name('user.dashboard');
+});
+
+// Service Provider dashboard routes
+Route::middleware(['auth', 'role:service_provider'])->group(function () {
+    Route::get('/provider/dashboard', function () {
+        return view('provider.dashboard');
+    })->name('provider.dashboard');
+});
