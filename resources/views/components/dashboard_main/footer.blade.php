@@ -1,3 +1,3 @@
             <footer>
-                <p>Copyright © 2022 Dreamguys.</p>
+                <p>Copyright &copy; 2025 Musaraf.</p>
             </footer>

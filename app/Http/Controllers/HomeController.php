@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $providers = ServiceProvider::all();
+        $providers = ServiceProvider::paginate(10);
+        // $providers = ServiceProvider::all();
         return view('common_pages.home_view',compact('providers'));
     }
     public function viewServiceProvider(){
