@@ -3,24 +3,24 @@
         <div class="card comman-shadow">
             <div class="card-body">
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
                 <form action="/admin/dashboard/service-provider-store" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="form-title student-info">User Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+                            <h5 class="form-title student-info">User Information </h5>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Full Name <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="full_name" id="full_name" value="{{old('full_name')}}"  placeholder="Enter Full Name">
+                                <input class="form-control" type="text" name="name" id="name" value="{{old('name')}}" placeholder="Enter Full Name">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
@@ -32,11 +32,11 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Gender <span class="login-danger">*</span></label>
-                                <select class="form-control select" name="gender" id="gender" value="{{old('gender')}}" >
+                                <select class="form-control select" name="gender" id="gender" value="{{old('gender')}}">
                                     <option>Select Gender</option>
-                                    <option>Female</option>
-                                    <option>Male</option>
-                                    <option>Others</option>
+                                    <option value="female">Female</option>
+                                    <option value="male">Male</option>
+                                    <option value="others">Others</option>
                                 </select>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Profession <span class="login-danger">*</span></label>
-                                <select class="form-control select" name="profession" value="{{old('profession')}}" >
+                                <select class="form-control select" name="profession" value="{{old('profession')}}">
                                     <option>Please Select Profession </option>
                                     <option value="plumber">Plumber</option>
                                     <option value="painter">Painter</option>
@@ -60,19 +60,48 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>E-Mail <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="email" id="email" value="{{old('email')}}"  placeholder="Enter Email Address">
+                                <input class="form-control" type="text" name="email" id="email" value="{{old('email')}}" placeholder="Enter Email Address">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Phone Number</label>
-                                <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{old('phone_number')}}"  placeholder="Enter Phone Number">
+                                <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{old('phone_number')}}" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Password</label>
+                                <input class="form-control" type="password" name="password" id="password" value="{{old('password')}}" placeholder="Enter password">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Confirm Password</label>
+                                <input class="form-control" type="password" name="password_confirmation" id="confirm_password" value="{{old('password_confirmation')}}" placeholder="Enter confirm password">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Role<span class="login-danger">*</span></label>
+                                <input list="role" name="role" class="form-control" placeholder="Select role" value="{{ old('role') }}">
+                                <datalist id="role">
+                                    <option value="admin">
+                                    <option value="user">
+                                    <option value="service_provider">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Description </label>
+                                <input class="form-control" type="text" name="description" id="description" value="{{old('description')}}" placeholder="Enter description">
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Location </label>
-                                <input class="form-control" type="text" name="location" id="location" value="{{old('location')}}"  placeholder="Enter Location">
+                                <input class="form-control" type="text" name="location" id="location" value="{{old('location')}}" placeholder="Enter Location">
                             </div>
                         </div>
                         <!-- <div class="col-12 col-sm-4">

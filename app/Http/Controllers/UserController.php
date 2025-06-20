@@ -83,7 +83,7 @@ class UserController extends Controller
     public function userbook()
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('error',"Login as a user");
+            return redirect()->route('login');
         }
         else{
             return view('user_pages.service_provider_book_view');

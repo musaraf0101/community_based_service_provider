@@ -1,7 +1,7 @@
 <div class="header">
     <div class="header-left">
-        <a href="#" class="logo">
-            <img src="{{asset('assets/img/logo.png')}}" alt="Logo">
+        <a href="/" class="logo">
+            <img src="{{asset('assets/img/')}}" alt="Logo">
         </a>
         <a href="#" class="logo logo-small">
             <img src="{{asset('assets/img/logo-small.png')}}" alt="Logo" width="30" height="30">

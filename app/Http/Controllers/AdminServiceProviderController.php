@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ServiceProvider;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminServiceProviderController extends Controller
 {
@@ -15,14 +17,17 @@ class AdminServiceProviderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'full_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'nic' => 'required|unique:service_providers,nic',
-            'gender' => 'required',
+            'gender' => 'required|in:male,female,others',
             'date_of_birth' => 'required',
             'profession' => 'required',
             'email' => 'required|unique:service_providers,email',
             'phone_number' => 'required|digits:10|unique:service_providers,phone_number',
+            'password' => 'required|string|confirmed|min:6',
             'location' => 'required',
+            'role' => 'required',
+            'description' => 'required|string|max:255',
             // 'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
 
@@ -36,7 +41,7 @@ class AdminServiceProviderController extends Controller
         // }
 
         ServiceProvider::create([
-            'full_name' => $request->full_name,
+            'name' => $request->name,
             'nic' => $request->nic,
             'gender' => $request->gender,
             'date_of_birth' => $request->date_of_birth,
@@ -44,7 +49,15 @@ class AdminServiceProviderController extends Controller
             'email' => $request->email,
             'phone_number' => $request->phone_number,
             'location' => $request->location,
+            'description' => $request->description,
             // 'img' => $pictureFIleName,
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role
         ]);
 
         return redirect()->route('AdminServiceProvider.create');

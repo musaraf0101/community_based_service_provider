@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('service_providers', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
+            $table->string('name')->nullable();
             $table->integer('nic')->unique();
             $table->string('gender');
             $table->string('date_of_birth');
             $table->string('profession');
             $table->string('email')->unique();
             $table->integer('phone_number')->unique();
+            $table->string('description');
             $table->string('location');
             // $table->string('img');
             $table->timestamps();

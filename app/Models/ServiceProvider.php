@@ -15,6 +15,7 @@ class ServiceProvider extends Model
         'email',
         'phone_number',
         'location',
+        'description',
         // 'img',
     ];
 }
