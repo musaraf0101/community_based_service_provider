@@ -18,7 +18,7 @@
                             <a href="#"><i class="fas fa-building"></i> <span>Paymet</span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="#">Payment List</a></li>
+                                <li><a href="/user/dashboard/payment">Payment List</a></li>
                             </ul>
                         </li>
                     </ul>

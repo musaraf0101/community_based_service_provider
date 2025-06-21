@@ -11,11 +11,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
-Route::get('/about',[AboutController::class,'index'])->name('About.index');
+Route::get('/about', [AboutController::class, 'index'])->name('About.index');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('Contact.index');
 Route::post('/contact-us/send', [ContactController::class, 'store'])->name('Contact.store');
 
@@ -50,7 +51,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     //admin-service provider operation
     Route::get('/admin/dashboard/service-provider-create', [AdminServiceProviderController::class, 'create'])->name('AdminServiceProvider.create'); //ok
     Route::post('/admin/dashboard/service-provider-store', [AdminServiceProviderController::class, 'store'])->name('AdminServiceProvider.store'); //ok
-    Route::get('/admin/dashboard/service-provider-edit/{id}', [AdminServiceProviderController::class, 'edit'])->name('AdminServiceProvider.edit'); 
+    Route::get('/admin/dashboard/service-provider-edit/{id}', [AdminServiceProviderController::class, 'edit'])->name('AdminServiceProvider.edit');
     Route::put('/admin/dashboard/service-provider-update/{id}', [AdminServiceProviderController::class, 'update'])->name('AdminServiceProvider.update'); //error
     Route::delete('/admin/dashboard/service-provider-delete/{id}', [AdminServiceProviderController::class, 'delete'])->name('AdminServiceProvider.delete');
     Route::get('/admin/dashboard/service-provider-list', [AdminServiceProviderController::class, 'serviceproviderlist'])->name('AdminServiceProvider.serviceproviderlist');
@@ -69,7 +70,8 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::put('/user/dashboard/update/{id}', [UserController::class, 'userupdate'])->name('User.userupdate');
     Route::get('/user/dashboard/service-provider-list', [UserController::class, 'serviceproviderlist'])->name('User.serviceproviderlist');
     Route::get('/user/dashboard/book', [UserController::class, 'userbook'])->name('User.userbook');
-    Route::post('/user/dashboard/store',[UserController::class,'userBookStore'])->name("User.userBookStore");
+    Route::post('/user/dashboard/store', [UserController::class, 'userBookStore'])->name("User.userBookStore");
+    Route::get('/user/dashboard/payment',[PaymentController::class,'index'])->name('Payment.index');
 });
 
 // Service Provider dashboard routes
