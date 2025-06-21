@@ -20,11 +20,14 @@
         </li>
       </ul>
 
-      <!-- Login Button on the right -->
+      <!-- Login and Register Buttons on the right -->
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
+        <li class="nav-item me-2">
           <a class="btn btn-outline-primary" href="/login">Login</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="btn btn-outline-primary" href="/register">Register</a>
+        </li> -->
       </ul>
     </div>
   </div>

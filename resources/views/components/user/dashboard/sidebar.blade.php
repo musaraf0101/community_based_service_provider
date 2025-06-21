@@ -6,14 +6,6 @@
                             <span>Menu</span>
                         </li>
                         <li class="submenu">
-                            <a href="#"><i class="fas fa-graduation-cap"></i> <span>User</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul>
-
-                                <li><a href="/user/dashboard/update">User Update</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
                             <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>Service Provider</span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
