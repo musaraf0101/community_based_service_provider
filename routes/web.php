@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminServiceProviderController;
 use App\Http\Controllers\AdminUserController;
@@ -14,6 +15,7 @@ use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
+Route::get('/about',[AboutController::class,'index'])->name('About.index');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('Contact.index');
 Route::post('/contact-us/send', [ContactController::class, 'store'])->name('Contact.store');
 

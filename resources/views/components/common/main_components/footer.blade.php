@@ -1,4 +1,3 @@
-
 <style>
   .site-footer {
     background-color: #222;
@@ -30,10 +29,6 @@
     text-decoration: none;
   }
 
-  .footer-container a:hover {
-    text-decoration: underline;
-  }
-
   .footer-social img {
     width: 24px;
     margin-right: 10px;
@@ -45,6 +40,9 @@
     border-top: 1px solid #444;
     margin-top: 20px;
     font-size: 0.9em;
+  }
+  .footer-links ul li{
+    list-style-type: none;
   }
 </style>
 
@@ -58,10 +56,9 @@
     <div class="footer-links">
       <h3>Quick Links</h3>
       <ul>
+        <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact-us">Contact</a></li>
       </ul>
     </div>
 
