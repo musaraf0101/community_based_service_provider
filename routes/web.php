@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('Contact.index');
 Route::post('/contact-us/send', [ContactController::class, 'store'])->name('Contact.store');
-Route::get('/view/service-provider-details', [HomeController::class, 'viewServiceProvider'])->name('Home.viewServiceProvider');
 
 
 /*------------- Auth Routes ---------------*/
@@ -62,12 +61,12 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     })->name('User.index');
 
     /*Route::get('/user/dashboard', [UserController::class, 'index'])->name('User.index');*/
-    Route::get('/user/dashboard/compliant-create', [UserController::class, 'compliantcreate'])->name('User.compliantcreate');
+    Route::get('/user/dashboard/compliant-create/{id}', [UserController::class, 'compliantcreate'])->name('User.compliantcreate');
     Route::post('/user/dashboard/compliant-store', [UserController::class, 'compliantstore'])->name('User.compliantstore');
     Route::get('/user/dashboard/edit/{id}', [UserController::class, 'userEdit'])->name('User.userEdit');
     Route::put('/user/dashboard/update/{id}', [UserController::class, 'userupdate'])->name('User.userupdate');
     Route::get('/user/dashboard/service-provider-list', [UserController::class, 'serviceproviderlist'])->name('User.serviceproviderlist');
-    Route::get('/user/dashboard/book', [UserController::class, 'userbook'])->name('User.userbook');
+    Route::get('/user/dashboard/book/{id}', [UserController::class, 'userbook'])->name('User.userbook');
     Route::post('/user/dashboard/store',[UserController::class,'userBookStore'])->name("User.userBookStore");
 });
 
