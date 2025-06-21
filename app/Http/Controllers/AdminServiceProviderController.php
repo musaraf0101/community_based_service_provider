@@ -98,7 +98,7 @@ class AdminServiceProviderController extends Controller
     {
         $provider = ServiceProvider::find($id);
         $provider->delete();
-        return redirect()->route('Admin.serviceproviderlist');
+        return redirect()->route('AdminServiceProvider.serviceproviderlist');
     }
 
 

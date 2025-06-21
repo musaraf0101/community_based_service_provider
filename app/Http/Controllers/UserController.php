@@ -16,7 +16,7 @@ class UserController extends Controller
         return view('user_pages.user_dashboard_view');
     }
     public function compliantcreate()
-    {
+    {   
         return view('user_pages.create_compliant_view');
     }
     public function compliantstore(Request $request)

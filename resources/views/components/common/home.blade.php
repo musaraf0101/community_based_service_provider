@@ -17,10 +17,10 @@
                         <li><i class="bi bi-person-fill-check me-1"></i> Profession: <strong>{{ $provider->profession }}</strong></li>
                     </ul>
                     <div class="mt-auto d-flex justify-content-between">
-                        <a href="/user/dashboard/book/{{ $provider->id }}" class="btn btn-primary w-100 me-2">
+                        <a href="/user/dashboard/book" class="btn btn-primary w-100 me-2">
                             <i class="bi bi-calendar-check-fill me-1"></i> Book Now
                         </a>
-                        <a href="/user/dashboard/compliant-create/{{ $provider->id }}" class="btn btn-outline-danger w-100">
+                        <a href="/user/dashboard/compliant-create" class="btn btn-outline-danger w-100">
                             <i class="bi bi-exclamation-triangle-fill me-1"></i> Report Issue
                         </a>
                     </div>
