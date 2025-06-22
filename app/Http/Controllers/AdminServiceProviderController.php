@@ -25,7 +25,10 @@ class AdminServiceProviderController extends Controller
             'email' => 'required|unique:service_providers,email',
             'phone_number' => 'required|digits:10|unique:service_providers,phone_number',
             'password' => 'required|string|confirmed|min:6',
-            'location' => 'required',
+            'location' => 'required|in:Colombo,Gampaha,Kalutara,Kandy,Matale,Nuwara Eliya,
+                            Galle,Matara,Hambantota,Jaffna,Kilinochchi,Mannar,
+                            Mullaitivu,Vavuniya,Ampara,Batticaloa,Trincomalee,
+                            Kurunegala,Puttalam,Anuradhapura,Polonnaruwa,Badulla,Monaragala,Kegalle,Ratnapura',
             'role' => 'required',
             'description' => 'required|string|max:255',
             // 'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240'

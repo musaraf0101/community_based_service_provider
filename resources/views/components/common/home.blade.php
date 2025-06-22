@@ -87,6 +87,7 @@
             <div class="filter-container">
                 <h5 class="mb-3">Services</h5>
 
+                <!-- Location Filter -->
                 <div class="filter-group">
                     <div class="filter-header" data-toggle="location">
                         Location
@@ -113,6 +114,7 @@
                     </div>
                 </div>
 
+                <!-- Profession Filter -->
                 <div class="filter-group">
                     <div class="filter-header" data-toggle="profession">
                         Profession
@@ -132,6 +134,28 @@
                         </ul>
                     </div>
                 </div>
+
+                <!-- Gender Filter -->
+                <div class="filter-group">
+                    <div class="filter-header" data-toggle="gender">
+                        Gender
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="filter-body" id="gender-options">
+                        <ul class="filter-list">
+                            @php
+                            $genders = ['Male', 'Female', 'Other'];
+                            @endphp
+                            @foreach($genders as $gender)
+                            <li>
+                                <input type="checkbox" value="{{ strtolower($gender) }}" id="gender-{{ strtolower($gender) }}">
+                                <label for="gender-{{ strtolower($gender) }}">{{ $gender }}</label>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -140,7 +164,8 @@
                 @foreach($providers as $provider)
                 <div class="col-md-6 col-lg-4 mb-4 provider-card"
                     data-location="{{ strtolower($provider->location) }}"
-                    data-profession="{{ strtolower($provider->profession) }}">
+                    data-profession="{{ strtolower($provider->profession) }}"
+                    data-gender="{{ strtolower($provider->gender) }}">
                     <div class="card shadow-sm border-0 rounded-4 h-100">
                         <img src="https://via.placeholder.com/400x200?text=Service+Image" class="card-img-top rounded-top-4" alt="Service Image">
                         <div class="card-body d-flex flex-column">
@@ -150,6 +175,7 @@
                                 <li><i class="bi bi-clock-fill me-1"></i> Response Time: <strong>Under 2 hours</strong></li>
                                 <li><i class="bi bi-geo-alt-fill me-1"></i> Location: <strong>{{ $provider->location }}</strong></li>
                                 <li><i class="bi bi-person-fill-check me-1"></i> Profession: <strong>{{ $provider->profession }}</strong></li>
+                                <li><i class="bi bi-gender-ambiguous me-1"></i> Gender: <strong>{{ $provider->gender }}</strong></li>
                             </ul>
                             <div class="mt-auto d-flex justify-content-between">
                                 <a href="/user/dashboard/book" class="btn btn-primary w-100 me-2">
@@ -175,10 +201,9 @@
     </div>
 </div>
 
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        /* Toggle dropdown sections */
+        // Toggle dropdown sections (Location, Profession, Gender)
         document.querySelectorAll('.filter-header').forEach(header => {
             header.addEventListener('click', function() {
                 const type = header.getAttribute('data-toggle');
@@ -189,23 +214,26 @@
             });
         });
 
-        /* Filtering logic */
+        // Filtering logic to include gender filter
         function applyFilters() {
             const selectedDistricts = Array.from(document.querySelectorAll('#location-options input:checked')).map(cb => cb.value);
             const selectedProfessions = Array.from(document.querySelectorAll('#profession-options input:checked')).map(cb => cb.value);
+            const selectedGenders = Array.from(document.querySelectorAll('#gender-options input:checked')).map(cb => cb.value);
 
             document.querySelectorAll('.provider-card').forEach(card => {
                 const district = card.dataset.location;
                 const profession = card.dataset.profession;
+                const gender = card.dataset.gender;
 
                 const matchDistrict = selectedDistricts.length === 0 || selectedDistricts.includes(district);
                 const matchProfession = selectedProfessions.length === 0 || selectedProfessions.includes(profession);
+                const matchGender = selectedGenders.length === 0 || selectedGenders.includes(gender);
 
-                card.style.display = (matchDistrict && matchProfession) ? '' : 'none';
+                card.style.display = (matchDistrict && matchProfession && matchGender) ? '' : 'none';
             });
         }
 
-        /* Attach listeners to all checkboxes */
+        // Attach listeners to all checkboxes
         document.querySelectorAll('.filter-list input[type="checkbox"]').forEach(cb => {
             cb.addEventListener('change', applyFilters);
         });

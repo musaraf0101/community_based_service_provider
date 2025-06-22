@@ -100,8 +100,35 @@
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
-                                <label>Location </label>
-                                <input class="form-control" type="text" name="location" id="location" value="{{old('location')}}" placeholder="Enter Location">
+                                <label>Location <span class="login-danger">*</span></label>
+                                <input list="location-list" name="location" class="form-control" placeholder="Select district" value="{{ old('location') }}">
+                                <datalist id="location-list">
+                                    <option value="Colombo">
+                                    <option value="Gampaha">
+                                    <option value="Kalutara">
+                                    <option value="Kandy">
+                                    <option value="Matale">
+                                    <option value="Nuwara Eliya">
+                                    <option value="Galle">
+                                    <option value="Matara">
+                                    <option value="Hambantota">
+                                    <option value="Jaffna">
+                                    <option value="Kilinochchi">
+                                    <option value="Mannar">
+                                    <option value="Mullaitivu">
+                                    <option value="Vavuniya">
+                                    <option value="Ampara">
+                                    <option value="Batticaloa">
+                                    <option value="Trincomalee">
+                                    <option value="Kurunegala">
+                                    <option value="Puttalam">
+                                    <option value="Anuradhapura">
+                                    <option value="Polonnaruwa">
+                                    <option value="Badulla">
+                                    <option value="Monaragala">
+                                    <option value="Kegalle">
+                                    <option value="Ratnapura">
+                                </datalist>
                             </div>
                         </div>
                         <!-- <div class="col-12 col-sm-4">
