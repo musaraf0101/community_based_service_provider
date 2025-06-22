@@ -48,5 +48,4 @@ php artisan migrate
 php artisan serve
 
 
-
-##### ATI Trincomalee [https://trincoati.com/]
+ATI Trincomalee [https://trincoati.com/]
