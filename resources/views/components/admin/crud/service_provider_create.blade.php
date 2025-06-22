@@ -49,14 +49,37 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Profession <span class="login-danger">*</span></label>
-                                <select class="form-control select" name="profession" value="{{old('profession')}}">
-                                    <option>Please Select Profession </option>
+                                <select class="form-control select" name="profession" value="{{ old('profession') }}">
+                                    <option value="">Please Select Profession</option>
                                     <option value="plumber">Plumber</option>
-                                    <option value="painter">Painter</option>
+                                    <option value="electrician">Electrician</option>
                                     <option value="mechanic">Mechanic</option>
+                                    <option value="carpenter">Carpenter</option>
+                                    <option value="painter">Painter</option>
+                                    <option value="mason">Mason</option>
+                                    <option value="roofer">Roofer</option>
+                                    <option value="gardener">Gardener</option>
+                                    <option value="cleaner">Cleaner</option>
+                                    <option value="housekeeper">Housekeeper</option>
+                                    <option value="hvac-technician">HVAC Technician</option>
+                                    <option value="welder">Welder</option>
+                                    <option value="appliance-repair-technician">Appliance Repair Technician</option>
+                                    <option value="tailor">Tailor</option>
+                                    <option value="tutor">Tutor</option>
+                                    <option value="it-computer-technician">IT / Computer Technician</option>
+                                    <option value="security-guard">Security Guard</option>
+                                    <option value="driver">Driver</option>
+                                    <option value="beautician">Beautician</option>
+                                    <option value="hairdresser">Hairdresser</option>
+                                    <option value="photographer">Photographer</option>
+                                    <option value="courier-service">Courier Service</option>
+                                    <option value="home-health-aide">Home Health Aide</option>
+                                    <option value="pool-cleaner">Pool Cleaner</option>
+                                    <option value="maintenance-specialist">Maintenance Specialist</option>
                                 </select>
                             </div>
                         </div>
+
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>E-Mail <span class="login-danger">*</span></label>
@@ -101,34 +124,34 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Location <span class="login-danger">*</span></label>
-                                <input list="location-list" name="location" class="form-control" placeholder="Select district" value="{{ old('location') }}">
-                                <datalist id="location-list">
-                                    <option value="Colombo">
-                                    <option value="Gampaha">
-                                    <option value="Kalutara">
-                                    <option value="Kandy">
-                                    <option value="Matale">
-                                    <option value="Nuwara Eliya">
-                                    <option value="Galle">
-                                    <option value="Matara">
-                                    <option value="Hambantota">
-                                    <option value="Jaffna">
-                                    <option value="Kilinochchi">
-                                    <option value="Mannar">
-                                    <option value="Mullaitivu">
-                                    <option value="Vavuniya">
-                                    <option value="Ampara">
-                                    <option value="Batticaloa">
-                                    <option value="Trincomalee">
-                                    <option value="Kurunegala">
-                                    <option value="Puttalam">
-                                    <option value="Anuradhapura">
-                                    <option value="Polonnaruwa">
-                                    <option value="Badulla">
-                                    <option value="Monaragala">
-                                    <option value="Kegalle">
-                                    <option value="Ratnapura">
-                                </datalist>
+                                <select name="location" class="form-control" value="{{ old('location') }}">
+                                    <option value="">Please Select District</option>
+                                    <option value="colombo">Colombo</option>
+                                    <option value="gampaha">Gampaha</option>
+                                    <option value="kalutara">Kalutara</option>
+                                    <option value="kandy">Kandy</option>
+                                    <option value="matale">Matale</option>
+                                    <option value="nuwara-eliya">Nuwara Eliya</option>
+                                    <option value="galle">Galle</option>
+                                    <option value="matara">Matara</option>
+                                    <option value="hambantota">Hambantota</option>
+                                    <option value="jaffna">Jaffna</option>
+                                    <option value="kilinochchi">Kilinochchi</option>
+                                    <option value="mannar">Mannar</option>
+                                    <option value="mullaitivu">Mullaitivu</option>
+                                    <option value="vavuniya">Vavuniya</option>
+                                    <option value="ampara">Ampara</option>
+                                    <option value="batticaloa">Batticaloa</option>
+                                    <option value="trincomalee">Trincomalee</option>
+                                    <option value="kurunegala">Kurunegala</option>
+                                    <option value="puttalam">Puttalam</option>
+                                    <option value="anuradhapura">Anuradhapura</option>
+                                    <option value="polonnaruwa">Polonnaruwa</option>
+                                    <option value="badulla">Badulla</option>
+                                    <option value="monaragala">Monaragala</option>
+                                    <option value="kegalle">Kegalle</option>
+                                    <option value="ratnapura">Ratnapura</option>
+                                </select>
                             </div>
                         </div>
                         <!-- <div class="col-12 col-sm-4">

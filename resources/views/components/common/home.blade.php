@@ -81,7 +81,7 @@
     }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-md-3 mb-4">
             <div class="filter-container">
@@ -123,7 +123,10 @@
                     <div class="filter-body" id="profession-options">
                         <ul class="filter-list">
                             @php
-                            $professions = ['Plumber', 'Mechanic', 'Painter', 'Electrician', 'Carpenter'];
+                            $professions = ['Plumber','Electrician','Mechanic','Carpenter','Painter','Mason','Roofer',
+                            'Gardener','Cleaner','Housekeeper','HVAC Technician','Welder','Appliance Repair Technician',
+                            'Tailor','Tutor','IT / Computer Technician','Security Guard','Driver','Beautician','Hairdresser',
+                            'Photographer','Courier Service','Home Health Aide','Pool Cleaner','Maintenance Specialist'];
                             @endphp
                             @foreach($professions as $profession)
                             <li>
@@ -167,12 +170,10 @@
                     data-profession="{{ strtolower($provider->profession) }}"
                     data-gender="{{ strtolower($provider->gender) }}">
                     <div class="card shadow-sm border-0 rounded-4 h-100">
-                        <img src="https://via.placeholder.com/400x200?text=Service+Image" class="card-img-top rounded-top-4" alt="Service Image">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ $provider->name }}</h5>
                             <p class="card-text text-muted small">Get high-priority help with guaranteed response time.</p>
                             <ul class="list-unstyled text-muted small mb-3">
-                                <li><i class="bi bi-clock-fill me-1"></i> Response Time: <strong>Under 2 hours</strong></li>
                                 <li><i class="bi bi-geo-alt-fill me-1"></i> Location: <strong>{{ $provider->location }}</strong></li>
                                 <li><i class="bi bi-person-fill-check me-1"></i> Profession: <strong>{{ $provider->profession }}</strong></li>
                                 <li><i class="bi bi-gender-ambiguous me-1"></i> Gender: <strong>{{ $provider->gender }}</strong></li>

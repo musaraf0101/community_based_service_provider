@@ -2,7 +2,6 @@
     <div class="row">
         <div class="col-sm-12 col-md-8 col-lg-6 mx-auto mb-4">
             <div class="card shadow-sm border-0 rounded-4 h-100">
-                <img src="https://via.placeholder.com/800x300?text=About+Us" class="card-img-top rounded-top-4" alt="About Us Image">
                 <div class="card-body">
                     <h3 class="card-title mb-3">Who We Are</h3>
                     <p class="card-text text-muted">
@@ -10,7 +9,6 @@
                     </p>
                     <ul class="list-unstyled text-muted small">
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i> Trusted, verified professionals</li>
-                        <li><i class="bi bi-clock-fill me-2"></i> Response time under 2 hours</li>
                         <li><i class="bi bi-shield-lock-fill me-2"></i> Secure and private bookings</li>
                     </ul>
                 </div>
