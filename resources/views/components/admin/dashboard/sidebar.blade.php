@@ -6,6 +6,13 @@
                             <span>Menu</span>
                         </li>
 
+                        <li class="submenu">
+                            <a href="#"><i class="bi bi-bar-chart-fill"></i><span>Dashboard</span> <span
+                                    class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="/admin/dashboard">Dashboard</a></li>
+                            </ul>
+                        </li>
 
                         <li class="submenu">
                             <a href="#"><i class="fas fa-graduation-cap"></i> <span>User</span> <span

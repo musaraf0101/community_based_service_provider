@@ -1,16 +1,6 @@
 <div class="header">
     <div class="header-left">
-        <a href="/" class="logo">
-            <img src="{{asset('assets/img/')}}" alt="Logo">
-        </a>
-        <a href="#" class="logo logo-small">
-            <img src="{{asset('assets/img/logo-small.png')}}" alt="Logo" width="30" height="30">
-        </a>
-    </div>
-    <div class="menu-toggle">
-        <a href="javascript:void(0);" id="toggle_btn">
-            <i class="fas fa-bars"></i>
-        </a>
+        <a href="/"><i class="fas fa-home" style="font-size: 30px;"></i></a>
     </div>
 
     <div class="top-nav-search">
