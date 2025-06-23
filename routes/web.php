@@ -13,6 +13,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Middleware\RoleMiddleware;
+use App\Models\Booking;
+use App\Models\Compliant;
+use App\Models\ServiceProvider;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
@@ -34,7 +38,24 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Admin dashboard routes
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return view('admin_pages.admin_dashboard_view');
+
+        $totalUsers = User::count();
+        $totalBookings = Booking::count();
+        $totalComplaints = Compliant::count();
+        $totalServiceProviders = ServiceProvider::count();
+        $maleProviders = ServiceProvider::where('gender', 'male')->count();
+        $femaleProviders = ServiceProvider::where('gender', 'female')->count();
+        $otherProviders = ServiceProvider::where('gender','other')->count();
+
+        return view('admin_pages.admin_dashboard_view', compact(
+            'totalUsers',
+            'totalBookings',
+            'totalComplaints',
+            'totalServiceProviders',
+            'maleProviders',
+            'femaleProviders',
+            'otherProviders'
+        ));
     })->name('Admin.index');
 
     /* Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('Admin.index');*/
@@ -71,7 +92,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user/dashboard/service-provider-list', [UserController::class, 'serviceproviderlist'])->name('User.serviceproviderlist');
     Route::get('/user/dashboard/book', [UserController::class, 'userbook'])->name('User.userbook');
     Route::post('/user/dashboard/store', [UserController::class, 'userBookStore'])->name("User.userBookStore");
-    Route::get('/user/dashboard/payment',[PaymentController::class,'index'])->name('Payment.index');
+    Route::get('/user/dashboard/payment', [PaymentController::class, 'index'])->name('Payment.index');
 });
 
 // Service Provider dashboard routes
