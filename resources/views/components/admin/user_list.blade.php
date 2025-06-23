@@ -1,3 +1,11 @@
+<div class="top-nav-search mb-5">
+  <div class="input-group">
+    <input type="text" id="providerSearch" class="form-control" placeholder="Search here">
+    <button class="btn btn-dark" type="button">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</div>
 <div class="col-md-12 table-responsive mt-3">
   <table class="table">
     <thead>
@@ -38,3 +46,19 @@
     </tbody>
   </table>
 </div>
+
+
+<script>
+  document.getElementById('providerSearch').addEventListener('keyup', function() {
+    let searchValue = this.value.toLowerCase();
+    let tableRows = document.querySelectorAll('.table tbody tr');
+    tableRows.forEach(function(row) {
+      let rowText = row.innerText.toLowerCase();
+      if (rowText.includes(searchValue)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+</script>
