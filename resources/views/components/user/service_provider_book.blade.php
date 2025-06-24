@@ -12,7 +12,7 @@
                 </div>
                 @endif
                 @auth
-                <form action="/user/dashboard/store" method="post">
+                <form action="{{route('User.userBookStore')}}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-12">
