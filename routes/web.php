@@ -110,6 +110,9 @@ Route::middleware(['auth', 'role:service_provider'])->group(function () {
     Route::put('/service-provider/dashboard/update/{id}', [ServiceProviderController::class, 'update'])->name('ServiceProvider.update');
     Route::get('/service-provider/dashboard/compliant-list', [ServiceProviderController::class, 'compliantList'])->name('ServiceProvider.compliantList');
     Route::get('/service-provider/dashboard/book-list', [ServiceProviderController::class, 'bookList'])->name('ServiceProvider.bookList');
+    Route::get('/service-provider/dashboard/compliant-edit/{id}',[ServiceProviderController::class,'complaintEdit'])->name('ServiceProvider.complaintEdit');
+    Route::put('/service-provider/dashboard/compliant-update/{id}',[ServiceProviderController::class,'complaintUpdate'])->name('ServiceProvider.complaintUpdate');
+    Route::delete('/service-provider/dashboard/compliant-delete/{id}',[ServiceProviderController::class,'complaintDelete'])->name('ServiceProvider.complaintDelete');
 });
 
 

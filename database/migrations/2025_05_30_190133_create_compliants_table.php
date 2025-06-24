@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('compliant');
             $table->string('service_provider_name');
             $table->string('profession');
+            $table->string('complaint_status')->nullable();
             // $table->string('compliant_img');
             $table->timestamps();
         });

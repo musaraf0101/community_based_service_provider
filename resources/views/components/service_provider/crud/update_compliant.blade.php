@@ -11,8 +11,9 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/user/dashboard/compliant-store" method="post" enctype="multipart/form-data">
+                <form action="{{route('ServiceProvider.complaintUpdate',$compliant->id)}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-12">
                             <h5 class="form-title student-info">Compliant</h5>
@@ -20,31 +21,31 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Full Name <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="full_name" id="full_name" value="{{old('full_name')}}" placeholder="Enter Full Name">
+                                <input class="form-control" type="text" name="full_name" id="full_name" value="{{old('full_name')}}" placeholder="Enter Full Name" disabled>
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms calendar-icon">
                                 <label>Service Date <span class="login-danger">*</span></label>
-                                <input class="form-control datetimepicker" type="text" name="service_date" id="service_date" value="{{old('service_date')}}" placeholder="DD-MM-YYYY">
+                                <input class="form-control datetimepicker" type="text" name="service_date" id="service_date" value="{{old('service_date')}}" placeholder="DD-MM-YYYY" disabled>
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>E-Mail <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="email" id="email" value="{{old('email')}}" placeholder="Enter Email Address">
+                                <input class="form-control" type="text" name="email" id="email" value="{{old('email')}}" placeholder="Enter Email Address" disabled>
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Phone Number <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{old('phone_number')}}" placeholder="Enter Phone Number">
+                                <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{old('phone_number')}}" placeholder="Enter Phone Number" disabled>
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Location <span class="login-danger">*</span></label>
-                                <select name="location" class="form-control" value="{{ old('location') }}">
+                                <select name="location" class="form-control" value="{{ old('location') }}" disabled>
                                     <option value="">Please Select District</option>
                                     <option value="colombo">Colombo</option>
                                     <option value="gampaha">Gampaha</option>
@@ -77,7 +78,7 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Complaint Status <span class="login-danger">*</span></label>
-                                <select name="complaint_status" class="form-control" value="{{ old('complaint_status') }}" disabled>
+                                <select name="complaint_status" class="form-control" value="{{ old('complaint_status') }}">
                                     <option value="">Please Select status</option>
                                     <option value="pending">Pending</option>
                                     <option value="going">ON Going</option>
@@ -88,19 +89,19 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Compliant <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="compliant" id="compliant" value="{{old('compliant')}}" placeholder="Enter Compliant">
+                                <input class="form-control" type="text" name="compliant" id="compliant" value="{{old('compliant')}}" placeholder="Enter Compliant" disabled>
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Service Provider Name <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="service_provider_name" id="service_provider_name" value="{{old('service_provider_name')}}" placeholder="Enter Service Provider Name">
+                                <input class="form-control" type="text" name="service_provider_name" id="service_provider_name" value="{{old('service_provider_name')}}" placeholder="Enter Service Provider Name" disabled>
                             </div>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Profession <span class="login-danger">*</span></label>
-                                <select class="form-control select" name="profession" value="{{ old('profession') }}">
+                                <select class="form-control select" name="profession" value="{{ old('profession') }}" disabled>
                                     <option value="">Please Select Profession</option>
                                     <option value="plumber">Plumber</option>
                                     <option value="electrician">Electrician</option>
@@ -129,17 +130,6 @@
                                     <option value="maintenance-specialist">Maintenance Specialist</option>
                                 </select>
                             </div>
-                            <!-- </div>
-                        <div class="col-12 col-sm-4">
-                            <div class="form-group students-up-files">
-                                <label>Upload Photo (150px X 150px)</label>
-                                <div class="uplod">
-                                    <label class="file-upload image-upbtn mb-0">
-                                        Choose File <input type="file" name="compliant_img" id="compliant_img">
-                                    </label>
-                                </div>
-                            </div>
-                        </div> -->
                             <div class="col-12">
                                 <div class="student-submit">
                                     <button type="submit" class="btn btn-dark">Create</button>

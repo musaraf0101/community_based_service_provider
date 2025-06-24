@@ -15,6 +15,7 @@ class Compliant extends Model
         'compliant',
         'service_provider_name',
         'profession',
+        'complaint_status',
         // 'compliant_img'
     ];
 }
