@@ -7,7 +7,7 @@
                     @method('PUT')
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="form-title student-info">User Information <a href="/admin/dashboard/user-list">Back</a>
+                            <h5 class="form-title student-info">User Information
                             </h5>
                         </div>
                         <div class="col-12 col-sm-4">
