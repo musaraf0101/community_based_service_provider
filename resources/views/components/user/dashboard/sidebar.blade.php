@@ -21,14 +21,14 @@
                         <li><a href="/user/dashboard/book">Book</a></li>
                     </ul>
                 </li>
-                <li class="submenu">
+                <!-- <li class="submenu">
                     <a href="#"><i class="bi bi-credit-card-fill"></i> <span>Paymet</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="/user/dashboard/payment-add">Add Payment</a></li>
                         <li><a href="/user/dashboard/payment-list">Payment List</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

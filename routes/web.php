@@ -58,7 +58,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         ));
     })->name('Admin.index');
 
-    /* Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('Admin.index');*/
     Route::get('/admin/dashboard/compliant-list', [AdminController::class, 'admincompliantlist'])->name('Admin.admincompliantlist');
 
     // admin-user operation
@@ -92,12 +91,12 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user/dashboard/book', [UserController::class, 'userbook'])->name('User.userbook');
     Route::post('/user/dashboard/store', [UserController::class, 'userBookStore'])->name("User.userBookStore");
     // payment
-    Route::get('/user/dashboard/payment-list', [PaymentController::class, 'payment_list'])->name('Payment.payment_list');
-    Route::get('/user/dashboard/payment-add', [PaymentController::class, 'index'])->name('Payment.index');
-    Route::post('/user/dashboard/payment-store', [PaymentController::class, 'store'])->name('Payment.store');
-    Route::get('/user/dashboard/payment-edit/{id}', [PaymentController::class, 'edit'])->name('Payment.edit');
-    Route::put('/user/dashboard/payment-update/{id}', [PaymentController::class, 'update'])->name('Payment.update');
-    Route::delete('/user/dashboard/payment-delete/{id}', [PaymentController::class, 'delete'])->name('Payment.delete');
+    // Route::get('/user/dashboard/payment-list', [PaymentController::class, 'payment_list'])->name('Payment.payment_list');
+    // Route::get('/user/dashboard/payment-add', [PaymentController::class, 'index'])->name('Payment.index');
+    // Route::post('/user/dashboard/payment-store', [PaymentController::class, 'store'])->name('Payment.store');
+    // Route::get('/user/dashboard/payment-edit/{id}', [PaymentController::class, 'edit'])->name('Payment.edit');
+    // Route::put('/user/dashboard/payment-update/{id}', [PaymentController::class, 'update'])->name('Payment.update');
+    // Route::delete('/user/dashboard/payment-delete/{id}', [PaymentController::class, 'delete'])->name('Payment.delete');
 });
 
 // Service Provider dashboard routes
