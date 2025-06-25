@@ -15,7 +15,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="form-title student-info">User Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+                            <h5 class="form-title student-info">User Information <a href="#">Back</a></h5>
                         </div>
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">

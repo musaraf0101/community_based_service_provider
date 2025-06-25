@@ -73,7 +73,7 @@ class UserController extends Controller
         $user = UserData::find($id);
         $user->update($request->all());
 
-        return redirect()->route('', compact('user'));
+        return redirect()->route('', compact('user'),$id);
     }
     public function serviceproviderlist()
     {

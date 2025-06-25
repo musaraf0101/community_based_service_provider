@@ -95,7 +95,7 @@ class AdminServiceProviderController extends Controller
         // ]);
         $provider = ServiceProvider::find($id);
         $provider->update($request->all());
-        return redirect()->route('Admin.userEdit', $id , compact('provider'));
+        return redirect()->route('Admin.userEdit' , compact('provider'), $id);
     }
     public function delete($id)
     {
