@@ -14,7 +14,6 @@ class service_provider extends Seeder
     public function run(): void
     {
         ServiceProvider::create([
-            'name' => 'musaraf',
             'nic' => '2002096049',
             'gender' => 'male',
             'date_of_birth' => '2002/04/05',
@@ -25,7 +24,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'sahan',
             'nic' => '2002096050',
             'gender' => 'male',
             'date_of_birth' => '2002/05/29',
@@ -37,7 +35,6 @@ class service_provider extends Seeder
 
         ]);
         ServiceProvider::create([
-            'name' => 'fasarath',
             'nic' => '2002096051',
             'gender' => 'male',
             'date_of_birth' => '2002/06/18',
@@ -48,7 +45,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'rani',
             'nic' => '200096052',
             'gender' => 'female',
             'date_of_birth' => '2005/05/02',
@@ -59,7 +55,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'none',
             'nic' => '2002096053',
             'gender' => 'other',
             'date_of_birth' => '1997/05/02',
@@ -70,7 +65,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'none',
             'nic' => '2002096055',
             'gender' => 'other',
             'date_of_birth' => '1997/05/02',
@@ -81,7 +75,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'ramya',
             'nic' => '2002096057',
             'gender' => 'female',
             'date_of_birth' => '1997/05/02',
@@ -92,7 +85,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'vusra',
             'nic' => '2002096153',
             'gender' => 'female',
             'date_of_birth' => '1997/05/02',
@@ -103,7 +95,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'rinofa',
             'nic' => '2002396053',
             'gender' => 'female',
             'date_of_birth' => '1997/05/02',
@@ -114,7 +105,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'saheer',
             'nic' => '2002596053',
             'gender' => 'male',
             'date_of_birth' => '1997/05/02',
@@ -125,7 +115,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'saud',
             'nic' => '2002510053',
             'gender' => 'male',
             'date_of_birth' => '1997/05/02',
@@ -136,7 +125,6 @@ class service_provider extends Seeder
             'description' => 'nothing',
         ]);
         ServiceProvider::create([
-            'name' => 'usama',
             'nic' => '2002511153',
             'gender' => 'male',
             'date_of_birth' => '1997/05/02',

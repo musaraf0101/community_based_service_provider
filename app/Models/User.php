@@ -48,10 +48,10 @@ class User extends Authenticatable
     }
     public function serviceprovider()
     {
-        return $this->belongsToMany(ServiceProvider::class);
+        return $this->hasOne(ServiceProvider::class);
     }
     public function userdata()
     {
-        return $this->belongsToMany(UserData::class);
+        return $this->hasOne(UserData::class);
     }
 }

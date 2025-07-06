@@ -31,6 +31,7 @@ class AdminServiceProviderController extends Controller
                             kurunegala,puttalam,anuradhapura,polonnaruwa,badulla,monaragala,kegalle,ratnapura',
             'role' => 'required',
             'description' => 'required|string|max:255',
+            // 'user_id' => 'required|exists:users,id',
             // 'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
 
@@ -43,19 +44,6 @@ class AdminServiceProviderController extends Controller
         //     $pictureFIleName = null;
         // }
 
-        ServiceProvider::create([
-            'name' => $request->name,
-            'nic' => $request->nic,
-            'gender' => $request->gender,
-            'date_of_birth' => $request->date_of_birth,
-            'profession' => $request->profession,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'location' => $request->location,
-            'description' => $request->description,
-            // 'img' => $pictureFIleName,
-        ]);
-
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -63,12 +51,25 @@ class AdminServiceProviderController extends Controller
             'role' => $request->role
         ]);
 
+        ServiceProvider::create([
+            'user_id' => $request->id,
+            'nic' => $request->nic,
+            'gender' => $request->gender,
+            'date_of_birth' => $request->date_of_birth,
+            'profession' => $request->profession,
+            'phone_number' => $request->phone_number,
+            'location' => $request->location,
+            'description' => $request->description,
+            // 'img' => $pictureFIleName,
+        ]);
+
         return redirect()->route('AdminServiceProvider.create');
         // dd($request);
     }
-    public function edit($id){
+    public function edit($id)
+    {
         $provider = ServiceProvider::find($id);
-        return view('admin_pages.update_service_provider_view',compact('provider'));
+        return view('admin_pages.update_service_provider_view', compact('provider'));
     }
     public function Update(Request $request, $id)
     {
@@ -80,7 +81,8 @@ class AdminServiceProviderController extends Controller
             'profession' => 'required',
             'email' => 'required|unique:service_providers,email,' . $id,
             'phone_number' => 'required|digits:10|unique:service_providers,phone_number,' . $id,
-            'location' => 'required'
+            'location' => 'required',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         // ServiceProviderData::create([
@@ -95,7 +97,7 @@ class AdminServiceProviderController extends Controller
         // ]);
         $provider = ServiceProvider::find($id);
         $provider->update($request->all());
-        return redirect()->route('Admin.userEdit' , compact('provider'), $id);
+        return redirect()->route('Admin.userEdit', compact('provider'), $id);
     }
     public function delete($id)
     {

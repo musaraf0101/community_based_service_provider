@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->integer('phone_number')->unique();
             $table->string('description');
             $table->string('location');
-            $table->foreignId('user_id')->constrained('users','id')->onDelete("cascade");
+            $table->foreignId('user_id')->unique()->constrained('users','id')->onDelete("cascade");
             // $table->string('img');
             $table->timestamps();
         });

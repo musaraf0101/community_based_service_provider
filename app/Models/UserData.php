@@ -13,6 +13,7 @@ class UserData extends Model
         'email',
         'phone_number',
         'location',
+        'user_id'
         // 'img'
     ];
 

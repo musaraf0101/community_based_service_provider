@@ -16,6 +16,7 @@ class ServiceProvider extends Model
         'phone_number',
         'location',
         'description',
+        'user_id',
         // 'img',
     ];
 

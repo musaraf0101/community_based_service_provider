@@ -25,6 +25,7 @@ class AdminUserController extends Controller
             'phone_number' => 'required|digits:10|unique:user_data,phone_number',
             'location' => 'required',
             'role' => 'required',
+            // 'user_id' => 'required|exists:users,id',
             // 'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ]);
         //img upload code
@@ -36,22 +37,22 @@ class AdminUserController extends Controller
         //     $pictureFileName = null;
         // }
         // dd($request);
-        UserData::create([
-            'name' => $request->full_name,
-            'nic' => $request->nic,
-            'gender' => $request->gender,
-            'email' => $request->email,
-            'date_of_birth' => $request->date_of_birth,
-            'phone_number' => $request->phone_number,
-            'location' => $request->location,
-            // 'img' => $pictureFileName,
-        ]);
 
-        User::create([
-            'name' => $request->full_name,
+       User::create([
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
+        ]);
+
+        UserData::create([
+            'nic' => $request->nic,
+            'gender' => $request->gender,
+            'date_of_birth' => $request->date_of_birth,
+            'phone_number' => $request->phone_number,
+            'location' => $request->location,
+            'user_id' => $request->id,
+            // 'img' => $pictureFileName,
         ]);
         return redirect()->route('AdminUser.index');
     }
@@ -62,14 +63,18 @@ class AdminUserController extends Controller
     }
     public function Update(Request $request, $id)
     {
-        $request->validate([
+       $request->validate([
             'name' => 'required|string|max:255',
-            'nic' => 'required|unique:user_data,nic,' . $id,
+            'nic' => 'required|unique:user_data,nic',
             'gender' => "required|in:male,female,others",
             'date_of_birth' => 'required',
-            'email' => 'required|email|unique:user_data,email,' . $id,
-            'phone_number' => 'required|digits:10|unique:user_data,phone_number,' . $id,
+            'email' => 'required|email',
+            'password' => 'required|string|confirmed|min:6',
+            'phone_number' => 'required|digits:10|unique:user_data,phone_number',
             'location' => 'required',
+            'role' => 'required',
+            // 'user_id' => 'required|exists:users,id',
+            // 'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ]);
         $user = UserData::find($id);
         $user->update($request->all());
