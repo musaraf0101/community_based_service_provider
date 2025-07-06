@@ -8,8 +8,8 @@
     form {
         padding: 40px;
         border-radius: 15px;
-        background: linear-gradient(135deg, #1f1c2c, #928dab);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg,rgb(174, 174, 174),rgb(174, 174, 174));
+        box-shadow: 0 8px 25px rgba(174, 174, 174,0);
     }
 
     label {
@@ -28,7 +28,7 @@
 
     input.form-control:focus {
         outline: none;
-        box-shadow: 0 0 0 3px rgba(146, 141, 171, 0.4);
+        box-shadow: 0 0 0 3px rgb(255, 255, 255);
     }
 
     .btn-dark {

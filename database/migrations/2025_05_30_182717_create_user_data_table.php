@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('user_data', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
             $table->integer('nic')->unique();
             $table->string('gender');
             $table->string('date_of_birth');
             $table->string('email')->unique();
             $table->integer('phone_number')->unique();
             $table->string('location');
+            $table->foreignId('user_id')->constrained('users','id')->onDelete('cascade');
             // $table->string('img');
             $table->timestamps();
         });

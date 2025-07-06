@@ -46,4 +46,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function serviceprovider()
+    {
+        return $this->belongsToMany(ServiceProvider::class);
+    }
+    public function userdata()
+    {
+        return $this->belongsToMany(UserData::class);
+    }
 }

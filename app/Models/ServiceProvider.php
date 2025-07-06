@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Cache;
 class ServiceProvider extends Model
 {
     protected $fillable = [
-        'full_name',
         'nic',
         'gender',
         'date_of_birth',
@@ -20,9 +19,9 @@ class ServiceProvider extends Model
         // 'img',
     ];
 
-    // in User model or Provider model
-    public function getIsOnlineAttribute()
+
+    public function user()
     {
-        return Cache::has('user-is-online-' . $this->id);
+        return $this->belongsTo(User::class);
     }
 }

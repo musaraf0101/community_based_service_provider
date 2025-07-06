@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class UserData extends Model
 {
         protected $fillable = [
-        'name',
         'nic',
         'gender',
         'date_of_birth',
@@ -16,4 +15,8 @@ class UserData extends Model
         'location',
         // 'img'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

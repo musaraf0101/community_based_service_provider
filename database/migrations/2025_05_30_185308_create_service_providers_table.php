@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('service_providers', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
             $table->string('nic')->unique();
             $table->string('gender');
             $table->string('date_of_birth');
@@ -22,6 +21,7 @@ return new class extends Migration
             $table->integer('phone_number')->unique();
             $table->string('description');
             $table->string('location');
+            $table->foreignId('user_id')->constrained('users','id')->onDelete("cascade");
             // $table->string('img');
             $table->timestamps();
         });
