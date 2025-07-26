@@ -11,9 +11,16 @@
 
         <li class="nav-item zoom-screen me-2 mt-2">
             <a href="#" class="nav-link header-nav-list win-maximize">
-                <img src="{{asset('assets/img/icons/header-icon-04.svg')}}" alt="">
+                <img src="{{asset('assets/img/icons/header-icon-04.svg')}}" alt="404">
             </a>
         </li>
+        &nbsp;
+        <li class="mt-2">
+            <a href="#" class="nav-link header-nav-list">
+                <i class="bi bi-person"></i>
+            </a>
+        </li>
+        &nbsp;
         <li class="mt-2">
             <form action="/logout" method="post">
                 @csrf
