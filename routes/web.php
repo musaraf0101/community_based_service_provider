@@ -13,10 +13,6 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Middleware\RoleMiddleware;
-use App\Models\Booking;
-use App\Models\Compliant;
-use App\Models\ServiceProvider;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
@@ -37,26 +33,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Admin dashboard routes
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-
-        $totalUsers = User::count();
-        $totalBookings = Booking::count();
-        $totalComplaints = Compliant::count();
-        $totalServiceProviders = ServiceProvider::count();
-        $maleProviders = ServiceProvider::where('gender', 'male')->count();
-        $femaleProviders = ServiceProvider::where('gender', 'female')->count();
-        $otherProviders = ServiceProvider::where('gender', 'other')->count();
-
-        return view('admin_pages.admin_dashboard_view', compact(
-            'totalUsers',
-            'totalBookings',
-            'totalComplaints',
-            'totalServiceProviders',
-            'maleProviders',
-            'femaleProviders',
-            'otherProviders'
-        ));
-    })->name('Admin.index');
+    Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('Admin.index');
 
     Route::get('/admin/dashboard/compliant-list', [AdminController::class, 'admincompliantlist'])->name('Admin.admincompliantlist');
 
@@ -109,9 +86,9 @@ Route::middleware(['auth', 'role:service_provider'])->group(function () {
     Route::put('/service-provider/dashboard/update/{id}', [ServiceProviderController::class, 'update'])->name('ServiceProvider.update');
     Route::get('/service-provider/dashboard/compliant-list', [ServiceProviderController::class, 'compliantList'])->name('ServiceProvider.compliantList');
     Route::get('/service-provider/dashboard/book-list', [ServiceProviderController::class, 'bookList'])->name('ServiceProvider.bookList');
-    Route::get('/service-provider/dashboard/compliant-edit/{id}',[ServiceProviderController::class,'complaintEdit'])->name('ServiceProvider.complaintEdit');
-    Route::put('/service-provider/dashboard/compliant-update/{id}',[ServiceProviderController::class,'complaintUpdate'])->name('ServiceProvider.complaintUpdate');
-    Route::delete('/service-provider/dashboard/compliant-delete/{id}',[ServiceProviderController::class,'complaintDelete'])->name('ServiceProvider.complaintDelete');
+    Route::get('/service-provider/dashboard/compliant-edit/{id}', [ServiceProviderController::class, 'complaintEdit'])->name('ServiceProvider.complaintEdit');
+    Route::put('/service-provider/dashboard/compliant-update/{id}', [ServiceProviderController::class, 'complaintUpdate'])->name('ServiceProvider.complaintUpdate');
+    Route::delete('/service-provider/dashboard/compliant-delete/{id}', [ServiceProviderController::class, 'complaintDelete'])->name('ServiceProvider.complaintDelete');
 });
 
 
