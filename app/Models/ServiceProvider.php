@@ -19,10 +19,4 @@ class ServiceProvider extends Model
         'description',
         // 'img',
     ];
-
-    // in User model or Provider model
-    public function getIsOnlineAttribute()
-    {
-        return Cache::has('user-is-online-' . $this->id);
-    }
 }

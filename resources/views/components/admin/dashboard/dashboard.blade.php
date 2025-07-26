@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-        <div class="col-xl-3 col-sm-6 col-12">
+    <div class="col-xl-3 col-sm-6 col-12">
         <div class="card inovices-card">
             <div class="card-body">
                 <div class="inovices-widget-header">

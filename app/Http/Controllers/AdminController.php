@@ -29,8 +29,8 @@ class AdminController extends Controller
         $femaleProviders = ServiceProvider::where('gender', 'female')->count();
         $otherProviders = ServiceProvider::where('gender', 'other')->count();
 
-        $userCount = User::where('role','user')->count();
-        $serviceProviderCount = ServiceProvider::where('role','service_provider')->count();
+        // $userCount = User::where('role','user')->count();
+        // $serviceProviderCount = ServiceProvider::where('role','service_provider')->count();
 
 
 
@@ -42,8 +42,8 @@ class AdminController extends Controller
             'maleProviders',
             'femaleProviders',
             'otherProviders',
-            'usercount',
-            'serviceProviderCount',
+            // 'usercount',
+            // 'serviceProviderCount',
         ));
     }
 }
