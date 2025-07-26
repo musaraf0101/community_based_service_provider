@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <div class="card comman-shadow">
             <div class="card-body">
-                <form action="{{route('AdminUser.update',$user->id)}}" method="post">
+                <form action="{{route('User.userupdate',$user->id)}}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="row">
