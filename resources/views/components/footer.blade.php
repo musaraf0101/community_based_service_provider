@@ -78,6 +78,6 @@
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2025 Usama. All rights reserved.</p>
+    <p>&copy; 2025 Musaraf. All rights reserved.</p>
   </div>
 </footer>
