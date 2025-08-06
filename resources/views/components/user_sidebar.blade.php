@@ -9,7 +9,7 @@
                  </a>
              </li>
              <li>
-                 <a href="/user/book-list" class="flex items-center p-3 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors duration-200">
+                 <a href="{{ route('User.showBooking') }}" class="flex items-center p-3 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors duration-200">
                      Bookings
                  </a>
              </li>
