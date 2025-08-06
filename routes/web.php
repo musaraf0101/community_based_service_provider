@@ -60,14 +60,9 @@ Route::prefix('/service-provider')->middleware(['auth', 'role:service_provider']
     Route::get('/dashboard', [ServiceProviderController::class, 'showDashboard'])->name('Service-provider.dashboard');
 });
 
-//rating route
-Route::middleware(['auth'])->group(function () {
-    Route::get('/rate/{provider}', [RatingController::class, 'create'])->name('ratings.create');
-    Route::post('/rate/{provider}', [RatingController::class, 'store'])->name('ratings.store');
-});
-
-//booking
-Route::middleware(['auth'])->group(function () {
-    Route::get('/providers/{provider}/book', [BookingController::class, 'book'])->name('providers.book');
-    Route::post('/providers/{provider}/book', [BookingController::class, 'store'])->name('providers.book.store');
+Route::middleware(['auth'])->prefix('providers')->group(function () {
+    Route::get('{provider}/book', [BookingController::class, 'book'])->name('providers.book');
+    Route::post('{provider}/book', [BookingController::class, 'store'])->name('providers.book.store');
+    Route::get('{provider}/rate', [RatingController::class, 'create'])->name('ratings.create');
+    Route::post('{provider}/rate', [RatingController::class, 'store'])->name('ratings.store');
 });
