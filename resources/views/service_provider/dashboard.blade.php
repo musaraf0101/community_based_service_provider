@@ -30,6 +30,7 @@
                                 <th class="px-4 py-3">User</th>
                                 <th class="px-4 py-3">Date</th>
                                 <th class="px-4 py-3">Time</th>
+                                <th class="px-4 py-3">Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
@@ -38,11 +39,17 @@
                                 <td class="px-4 py-3">Alice</td>
                                 <td class="px-4 py-3">2025-08-08</td>
                                 <td class="px-4 py-3">10:30 AM</td>
+                                <td class="px-4 py-3">
+                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
+                                </td>
                             </tr>
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3">Bob</td>
                                 <td class="px-4 py-3">2025-08-09</td>
                                 <td class="px-4 py-3">2:00 PM</td>
+                                <td class="px-4 py-3">
+                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
