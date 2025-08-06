@@ -23,7 +23,7 @@
                     <td class="px-6 py-3 text-gray-800">{{ $provider->phone }}</td>
                     <td class="px-6 py-3 space-x-2">
                         {{-- Preview Button --}}
-                        <a href=""
+                        <a href="{{ route('admin.providers.show', $provider->id) }}"
                             class="px-3 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
                             Preview
                         </a>

@@ -32,6 +32,9 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/providers', [AdminController::class, 'serviceProviders'])->name('admin.providers');
     Route::post('/providers/{id}/approve', [AdminController::class, 'approve'])->name('admin.providers.approve');
     Route::delete('/providers/{id}/reject', [AdminController::class, 'reject'])->name('admin.providers.reject');
+
+    //service provider preview
+    Route::get('/admin/providers/{id}', [AdminController::class, 'show'])->name('admin.providers.show');
 });
 
 // User dashboard routes

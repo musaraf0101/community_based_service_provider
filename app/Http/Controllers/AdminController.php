@@ -24,6 +24,13 @@ class AdminController extends Controller
     $providers = ServiceProvider::where('status', 'pending')->get();
     return view('admin.service_providers', compact('providers'));
   }
+  //view service provider preview
+  public function show($id)
+  {
+    $provider = ServiceProvider::with('user')->findOrFail($id);
+    return view('admin.service_provider_preview', compact('provider'));
+  }
+
 
   public function approve($id)
   {
