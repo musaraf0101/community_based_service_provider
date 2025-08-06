@@ -140,7 +140,6 @@
                                 class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-center text-sm">
                                 <i class="bi bi-calendar-check-fill mr-1"></i> Book Now
                             </a>
-
                         </div>
                     </div>
                     @endforeach

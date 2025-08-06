@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\ServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,17 +13,24 @@ class BookingController extends Controller
     public function book(ServiceProvider $provider)
     {
         $provider->load('user');
-        return view('bookings.create', compact('provider'));
+        return view('user.booking', compact('provider'));
     }
     public function store(Request $request, ServiceProvider $provider)
     {
         $request->validate([
-            'booking_date' => 'required|date',
-            'booking_time' => 'required',
+            'booking_date' => ['required', 'date', 'after_or_equal:today'],
+            'booking_time' => ['required', function ($attribute, $value, $fail) use ($request) {
+                $bookingDate = $request->booking_date;
+                $bookingDateTime = Carbon::parse("$bookingDate $value");
+
+                if ($bookingDateTime->isPast()) {
+                    $fail('The booking time cannot be in the past.');
+                }
+            },],
         ]);
 
         $userId = Auth::id();
-        
+
         if (!$userId) {
             return redirect()->route('login');
         }
