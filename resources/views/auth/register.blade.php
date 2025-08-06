@@ -13,6 +13,7 @@
     .register-container {
         background-color: white;
         padding: 30px;
+        margin: 10px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         width: 350px;
@@ -69,10 +70,10 @@
         @csrf
 
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" value="{{ old('name') }}">
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" value="{{ old('email') }}">
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password">
@@ -81,12 +82,21 @@
         <input type="password" id="confirm_password" name="password_confirmation">
 
         <label for="role">Role:</label>
-        <select id="role" name="role">
+        <select id="role-select" name="role">
             <option value="">Select Role</option>
             <option value="user">User</option>
             <option value="service_provider">Service Provider</option>
             <option value="admin">Admin</option>
         </select>
+
+        <div id="service-provider-fields" style="display:none;">
+            <label for="business_name">Business Name:</label>
+            <input type="text" name="business_name" value="{{ old('business_name') }}">
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" value="{{ old('phone') }}">
+            <label for="address">Address:</label>
+            <input type="text" name="address" value="{{ old('address') }}">
+        </div>
 
         <input type="submit" value="Register">
     </form>
@@ -97,5 +107,11 @@
     <p><a href="/">← Back to Home</a></p>
 
 </div>
+
+<script>
+    document.getElementById('role-select').addEventListener('change', function() {
+        document.getElementById('service-provider-fields').style.display = this.value === 'service_provider' ? 'block' : 'none';
+    });
+</script>
 
 @endsection

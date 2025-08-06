@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function serviceProvider()
+    {
+        return $this->hasOne(ServiceProvider::class);
+    }
 }

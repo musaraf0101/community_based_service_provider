@@ -9,7 +9,7 @@
                  </a>
              </li>
              <li>
-                 <a href="t" class="flex items-center p-3 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors duration-200">
+                 <a href="/admin/providers" class="flex items-center p-3 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors duration-200">
                      Service Provider
                  </a>
              </li>

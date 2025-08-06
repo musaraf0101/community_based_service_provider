@@ -28,17 +28,19 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
 
+    //service provider approvel
+    Route::get('/providers', [AdminController::class, 'serviceProviders'])->name('admin.providers');
+    Route::post('/providers/{id}/approve', [AdminController::class, 'approve'])->name('admin.providers.approve');
+    Route::delete('/providers/{id}/reject', [AdminController::class, 'reject'])->name('admin.providers.reject');
 });
 
 // User dashboard routes
 Route::prefix('/user')->middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'showDashboard'])->name('User.dashboard');
-
 });
 
 
 // service provider dashboard routes
 Route::prefix('/service-provider')->middleware(['auth', 'role:service_provider'])->group(function () {
     Route::get('/dashboard', [ServiceProviderController::class, 'showDashboard'])->name('Service-provider.dashboard');
-
 });
