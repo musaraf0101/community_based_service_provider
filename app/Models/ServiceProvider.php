@@ -29,4 +29,13 @@ class ServiceProvider extends Model
     {
         return $this->hasMany(Booking::class, 'service_provider_id');
     }
+    public function pendingBookings()
+    {
+        return $this->bookings()->where('status', 'pending');
+    }
+
+    public function completedBookings()
+    {
+        return $this->bookings()->where('status', 'completed');
+    }
 }
