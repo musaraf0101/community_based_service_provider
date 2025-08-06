@@ -112,12 +112,7 @@
 
                         <!-- Rating Section -->
                         <div class="flex items-center text-yellow-400 text-sm mb-2">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-half"></i>
-                            <span class="ml-2 text-gray-600 text-xs">{{ $provider->ratings()->avg('rating'); }}</span>
+                            <span class="ml-2 text-gray-600 text-xs">Rating: {{ $provider->ratings()->avg('rating'); }} / 5</span>
                         </div>
 
                         <p class="text-gray-500 text-sm mb-3">
