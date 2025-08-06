@@ -59,6 +59,8 @@ Route::prefix('/user')->middleware(['auth', 'role:user'])->group(function () {
 // service provider dashboard routes
 Route::prefix('/service-provider')->middleware(['auth', 'role:service_provider'])->group(function () {
     Route::get('/dashboard', [ServiceProviderController::class, 'showDashboard'])->name('Service-provider.dashboard');
+    Route::get('/{provider}/bookings', [ServiceProviderController::class, 'showBookings'])->name('service_provider.bookings');
+
 });
 
 Route::middleware(['auth'])->prefix('providers')->group(function () {

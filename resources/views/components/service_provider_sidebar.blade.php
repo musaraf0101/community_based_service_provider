@@ -9,7 +9,7 @@
                  </a>
              </li>
              <li>
-                 <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors duration-200">
+                 <a href="{{ route('service_provider.bookings',['provider' => auth()->user()->serviceProvider->id]) }}" class="flex items-center p-3 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors duration-200">
                      View Booking
                  </a>
              </li>

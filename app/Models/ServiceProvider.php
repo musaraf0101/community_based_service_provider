@@ -25,4 +25,8 @@ class ServiceProvider extends Model
     {
         return $this->hasMany(Rating::class);
     }
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'service_provider_id');
+    }
 }

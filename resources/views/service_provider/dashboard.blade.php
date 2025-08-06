@@ -21,45 +21,6 @@
                     <p class="text-4xl font-bold text-gray-900 mt-2">3</p>
                 </div>
             </section>
-            <section class="p-8 bg-white shadow-lg rounded-lg">
-                <h2 class="text-2xl font-bold mb-6"> Bookings</h2>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full text-center">
-                        <thead class="bg-gray-100 text-gray-700">
-                            <tr>
-                                <th class="px-4 py-3">User</th>
-                                <th class="px-4 py-3">Date</th>
-                                <th class="px-4 py-3">Time</th>
-                                <th class="px-4 py-3">Status</th>
-                                <th class="px-4 py-3">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            {{-- Static Example --}}
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3">Alice</td>
-                                <td class="px-4 py-3">2025-08-08</td>
-                                <td class="px-4 py-3">10:30 AM</td>
-                                <td class="px-4 py-3">Pending</td>
-                                <td class="px-4 py-3 space-x-2">
-                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
-                                    <a href="#" class="text-blue-600 hover:underline">Update</a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3">Bob</td>
-                                <td class="px-4 py-3">2025-08-09</td>
-                                <td class="px-4 py-3">2:00 PM</td>
-                                <td class="px-4 py-3">Pending</td>
-                                <td class="px-4 py-3 space-x-2">
-                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
-                                    <a href="#" class="text-blue-600 hover:underline">Update</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
         </main>
     </div>
     @endsection
