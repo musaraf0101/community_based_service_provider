@@ -52,6 +52,7 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
 // User dashboard routes
 Route::prefix('/user')->middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'showDashboard'])->name('User.dashboard');
+    Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 });
 
 

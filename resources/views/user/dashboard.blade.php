@@ -13,7 +13,6 @@
 
             @include('components.dashboard_header')
 
-
             <section class="bg-white p-6 rounded-lg shadow-md">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-2xl font-bold text-gray-800">My Booking History</h2>
@@ -31,55 +30,49 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
-                            <!-- Static Row 1 -->
+                            @forelse($bookings as $booking)
                             <tr class="hover:bg-gray-50 transition-colors duration-150">
-                                <td class="py-3 px-4">101</td>
-                                <td class="py-3 px-4">John's Plumbing</td>
-                                <td class="py-3 px-4">12 Feb 2025</td>
+                                <td class="py-3 px-4">{{ $booking->id }}</td>
+                                <td class="py-3 px-4">{{ optional(optional($booking->serviceProvider)->user)->name ?? 'N/A' }}</td>
                                 <td class="py-3 px-4">
+                                    {{ \Carbon\Carbon::parse($booking->booking_date)->format('d M Y') }}
+                                </td>
+                                <td class="py-3 px-4">
+                                    @if($booking->status === 'pending')
                                     <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700">
                                         Pending
                                     </span>
-                                </td>
-                                <td class="py-3 px-4 flex space-x-3">
-                                    <a href="#" class="text-blue-600 hover:underline">Rating</a>
-                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <!-- Static Row 2 -->
-                            <tr class="hover:bg-gray-50 transition-colors duration-150">
-                                <td class="py-3 px-4">102</td>
-                                <td class="py-3 px-4">Elite Electricians</td>
-                                <td class="py-3 px-4">28 Jan 2025</td>
-                                <td class="py-3 px-4">
+                                    @elseif($booking->status === 'completed')
                                     <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
                                         Completed
                                     </span>
-                                </td>
-                                <td class="py-3 px-4 flex space-x-3">
-                                    <a href="#" class="text-blue-600 hover:underline">Rating</a>
-                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <!-- Static Row 3 -->
-                            <tr class="hover:bg-gray-50 transition-colors duration-150">
-                                <td class="py-3 px-4">103</td>
-                                <td class="py-3 px-4">QuickFix Carpenters</td>
-                                <td class="py-3 px-4">20 Jan 2025</td>
-                                <td class="py-3 px-4">
-                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-700">
-                                        Cancelled
+                                    @else
+                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">
+                                        {{ ucfirst($booking->status) }}
                                     </span>
+                                    @endif
                                 </td>
                                 <td class="py-3 px-4 flex space-x-3">
-                                    <a href="#" class="text-blue-600 hover:underline">Rating</a>
-                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
+                                    <a href="{{ optional($booking->serviceProvider) ? route('ratings.create', $booking->serviceProvider->id) : '#' }}" class="text-blue-600 hover:underline">
+                                        Rating
+                                    </a>
+                                    <form method="POST" action="{{ route('bookings.destroy', $booking->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:underline">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td colspan="5" class="text-center py-4 text-gray-500">No bookings found.</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
             </section>
+
 
         </main>
 

@@ -44,4 +44,15 @@ class BookingController extends Controller
 
         return redirect()->route('User.dashboard')->with('success', 'Booking created successfully!');
     }
+
+    public function destroy(Booking $booking)
+    {
+        if ($booking->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $booking->delete();
+
+        return redirect()->route('User.dashboard')->with('success', 'Booking deleted successfully.');
+    }
 }
