@@ -1,4 +1,5 @@
 @extends('layouts.dashboard')
+
 @section('dashboard')
 
 <body class="bg-gray-100 font-sans">
@@ -11,7 +12,20 @@
             @include('components.dashboard_header')
 
             <section class="p-8 bg-white shadow-lg rounded-lg">
-                <h2 class="text-2xl font-bold mb-6">Bookings</h2>
+                <h2 class="text-2xl font-bold mb-6">Manage Bookings</h2>
+
+                @if(session('success'))
+                <div class="mb-4 p-4 bg-green-100 text-green-700 rounded">
+                    {{ session('success') }}
+                </div>
+                @endif
+
+                @if(session('error'))
+                <div class="mb-4 p-4 bg-red-100 text-red-700 rounded">
+                    {{ session('error') }}
+                </div>
+                @endif
+
                 <div class="overflow-x-auto">
                     <table class="min-w-full text-center">
                         <thead class="bg-gray-100 text-gray-700">
@@ -36,13 +50,24 @@
                                     <span class="text-green-700 bg-green-100 px-3 py-1 rounded-full text-xs font-semibold">Completed</span>
                                     @endif
                                 </td>
-                                <td class="px-4 py-3 space-x-2">
+                                <td class="px-4 py-3 space-x-2 flex justify-center">
+                                    {{-- Delete Button --}}
                                     <form method="POST" action="{{ route('service_provider.bookings.destroy', $booking->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:underline">Delete</button>
                                     </form>
-                                    <a href="#" class="text-blue-600 hover:underline">Update</a>
+
+                                    {{-- Update Status --}}
+                                    <form action="{{ route('bookings.updateStatus', $booking->id) }}" method="POST" class="flex items-center space-x-2">
+                                        @csrf
+                                        @method('PATCH')
+                                        <select name="status" class="rounded px-2 py-1 text-sm border-gray-300">
+                                            <option value="pending" {{ $booking->status === 'pending' ? 'selected' : '' }}>Pending</option>
+                                            <option value="completed" {{ $booking->status === 'completed' ? 'selected' : '' }}>Completed</option>
+                                        </select>
+                                        <button type="submit" class="text-blue-600 hover:underline">Update</button>
+                                    </form>
                                 </td>
                             </tr>
                             @empty

@@ -61,6 +61,7 @@ Route::prefix('/service-provider')->middleware(['auth', 'role:service_provider']
     Route::get('/dashboard', [ServiceProviderController::class, 'showDashboard'])->name('Service-provider.dashboard');
     Route::get('/{provider}/bookings', [ServiceProviderController::class, 'showBookings'])->name('service_provider.bookings');
     Route::delete('/bookings/{booking}', [BookingController::class, 'destroyByProvider'])->name('service_provider.bookings.destroy');
+    Route::patch('/bookings/{booking}/status', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
 });
 
 Route::middleware(['auth'])->prefix('providers')->group(function () {

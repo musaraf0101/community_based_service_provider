@@ -68,4 +68,21 @@ class BookingController extends Controller
 
         return redirect()->back()->with('success', 'Booking deleted successfully.');
     }
+    public function updateStatus(Request $request, Booking $booking)
+    {
+        $serviceProvider = Auth::user()->serviceProvider;
+
+        if (!$serviceProvider || $booking->service_provider_id != $serviceProvider->id) {
+            return redirect()->back()->with('error', 'You are not authorized to update this booking.');
+        }
+
+        $request->validate([
+            'status' => 'required|in:pending,completed',
+        ]);
+
+        $booking->status = $request->status;
+        $booking->save();
+
+        return redirect()->back()->with('success', 'Booking status updated successfully.');
+    }
 }
