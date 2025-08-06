@@ -1,6 +1,6 @@
  <!-- Sidebar Navigation -->
  <aside class="w-full md:w-64 bg-white shadow-lg p-6 flex flex-col">
-     <div class="text-2xl font-bold text-gray-800 mb-8">EventSys User</div>
+     <div class="text-2xl font-bold text-gray-800 mb-8">Community Based Service Provider System</div>
      <nav>
          <ul class="space-y-2">
              <li>
@@ -9,8 +9,8 @@
                  </a>
              </li>
              <li>
-                 <a href="{{ route('User.showBooking') }}" class="flex items-center p-3 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors duration-200">
-                     Bookings
+                 <a href="{{ route('CommonPage.showAllProviders') }}" class="flex items-center p-3 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors duration-200">
+                    Find A Service Provider
                  </a>
              </li>
          </ul>

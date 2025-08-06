@@ -11,8 +11,4 @@ class UserController extends Controller
     {
         return view('user.dashboard');
     }
-    public function showbooking()
-    {
-        return view('user.booking');
-    }
 }

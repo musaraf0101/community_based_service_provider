@@ -12,7 +12,7 @@ use App\Http\Middleware\RoleMiddleware;
 //common pages
 Route::get('/', [CommonPageController::class, 'showHome']);
 Route::get('/contact', [CommonPageController::class, 'showContact']);
-Route::get('/view-all-providers',[CommonPageController::class,'showAllProviders']);
+Route::get('/view-all-providers',[CommonPageController::class,'showAllProviders'])->name('CommonPage.showAllProviders');
 
 
 //auth route
@@ -50,7 +50,6 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
 // User dashboard routes
 Route::prefix('/user')->middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'showDashboard'])->name('User.dashboard');
-    Route::get('/booking',[UserController::class,'showBooking'])->name('User.showBooking');
 });
 
 
