@@ -38,4 +38,12 @@ class LoginController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+    protected function authenticated(Request $request, $user)
+    {
+        if ($request->has('redirect_to')) {
+            return redirect($request->get('redirect_to'));
+        }
+
+        return redirect()->intended('/');
+    }
 }

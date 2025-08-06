@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CommonPageController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ServiceProviderController;
@@ -13,7 +14,7 @@ use App\Http\Middleware\RoleMiddleware;
 //common pages
 Route::get('/', [CommonPageController::class, 'showHome']);
 Route::get('/contact', [CommonPageController::class, 'showContact']);
-Route::get('/view-all-providers',[CommonPageController::class,'showAllProviders'])->name('CommonPage.showAllProviders');
+Route::get('/view-all-providers', [CommonPageController::class, 'showAllProviders'])->name('CommonPage.showAllProviders');
 
 
 //auth route
@@ -63,4 +64,10 @@ Route::prefix('/service-provider')->middleware(['auth', 'role:service_provider']
 Route::middleware(['auth'])->group(function () {
     Route::get('/rate/{provider}', [RatingController::class, 'create'])->name('ratings.create');
     Route::post('/rate/{provider}', [RatingController::class, 'store'])->name('ratings.store');
+});
+
+//booking
+Route::middleware(['auth'])->group(function () {
+    Route::get('/providers/{provider}/book', [BookingController::class, 'book'])->name('providers.book');
+    Route::post('/providers/{provider}/book', [BookingController::class, 'store'])->name('providers.book.store');
 });
