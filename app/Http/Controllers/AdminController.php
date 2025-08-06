@@ -24,14 +24,6 @@ class AdminController extends Controller
     $providers = ServiceProvider::where('status', 'pending')->get();
     return view('admin.service_providers', compact('providers'));
   }
-  //view service provider preview
-  public function show($id)
-  {
-    $provider = ServiceProvider::with('user')->findOrFail($id);
-    return view('admin.service_provider_preview', compact('provider'));
-  }
-
-
   public function approve($id)
   {
     $provider = ServiceProvider::findOrFail($id);
@@ -45,5 +37,21 @@ class AdminController extends Controller
     $provider = ServiceProvider::findOrFail($id);
     $provider->user->delete();
     return back()->with('error', 'Service Provider Rejected and Profile Deleted.');
+  }
+  //view service provider preview
+  public function show($id)
+  {
+    $provider = ServiceProvider::with('user')->findOrFail($id);
+    return view('admin.service_provider_preview', compact('provider'));
+  }
+  //view all approvel service provider
+  public function approvedProviders()
+  {
+    $providers = ServiceProvider::with('user')
+      ->where('status', 'approved')
+      ->orderBy('created_at', 'desc')
+      ->get();
+
+    return view('admin.approved_providers', compact('providers'));
   }
 }

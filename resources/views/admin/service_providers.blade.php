@@ -4,7 +4,14 @@
     @include('components.admin_sidebar')
     <main class="flex-1 p-8 overflow-auto">
         @include('components.dashboard_header')
-        <h1 class="text-2xl font-bold mb-4">Pending Service Providers</h1>
+
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold">Pending Service Providers</h1>
+            <a href="{{ route('admin.providers.approved') }}"
+                class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                View Approved Providers
+            </a>
+        </div>
 
         <table class="w-full border border-gray-200 rounded-lg overflow-hidden shadow-sm">
             <thead class="bg-gray-100">
