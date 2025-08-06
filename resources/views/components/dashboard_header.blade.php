@@ -1,5 +1,5 @@
 @php
-    $userRole = Auth::user()->role;
+    $user = Auth::user();
 @endphp
 
 <!-- Dashboard Header -->
@@ -11,6 +11,7 @@
             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
         </svg>
-        <span class="text-gray-500">{{ $userRole }}</span>
+        <span class="text-gray-500">{{ $user->name }}</span>
+        <span class="text-gray-500">Type: {{ $user->role }}</span>
     </div>
 </header>
