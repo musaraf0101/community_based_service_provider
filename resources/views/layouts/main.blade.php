@@ -21,6 +21,9 @@
     <!-- Lucide Icons for modern UI elements -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
 </head>
 
 <body class="font-[Poppins] bg-gray-50">
