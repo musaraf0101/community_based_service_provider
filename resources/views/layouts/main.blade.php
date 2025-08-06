@@ -17,6 +17,10 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons for modern UI elements -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 
 <body class="font-[Poppins] bg-gray-50">
