@@ -37,7 +37,7 @@
                                     @endif
                                 </td>
                                 <td class="px-4 py-3 space-x-2">
-                                    <form method="POST" action="#">
+                                    <form method="POST" action="{{ route('service_provider.bookings.destroy', $booking->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:underline">Delete</button>

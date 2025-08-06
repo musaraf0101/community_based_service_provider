@@ -55,4 +55,17 @@ class BookingController extends Controller
 
         return redirect()->route('User.dashboard')->with('success', 'Booking deleted successfully.');
     }
+
+    public function destroyByProvider($id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        if ($booking->service_provider_id != Auth::user()->serviceProvider->id) {
+            return redirect()->back()->with('error', 'You are not authorized to delete this booking.');
+        }
+
+        $booking->delete();
+
+        return redirect()->back()->with('success', 'Booking deleted successfully.');
+    }
 }

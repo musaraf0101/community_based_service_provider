@@ -60,7 +60,7 @@ Route::prefix('/user')->middleware(['auth', 'role:user'])->group(function () {
 Route::prefix('/service-provider')->middleware(['auth', 'role:service_provider'])->group(function () {
     Route::get('/dashboard', [ServiceProviderController::class, 'showDashboard'])->name('Service-provider.dashboard');
     Route::get('/{provider}/bookings', [ServiceProviderController::class, 'showBookings'])->name('service_provider.bookings');
-
+    Route::delete('/bookings/{booking}', [BookingController::class, 'destroyByProvider'])->name('service_provider.bookings.destroy');
 });
 
 Route::middleware(['auth'])->prefix('providers')->group(function () {
