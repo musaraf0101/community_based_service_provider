@@ -14,7 +14,7 @@
         <p class="text-lg md:text-xl text-gray-600 mb-8">
             Book a trusted plumber online in minutes.
         </p>
-        <a href="/login"
+        <a href="/view-all-providers"
             class="px-4 py-2 bg-white text-indigo-700 rounded-md font-semibold shadow-md 
           hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105 
           inline-flex items-center">
