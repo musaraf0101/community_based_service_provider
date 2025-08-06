@@ -11,7 +11,6 @@ use App\Http\Middleware\RoleMiddleware;
 
 //common pages
 Route::get('/', [CommonPageController::class, 'showHome']);
-Route::get('/about', [CommonPageController::class, 'showAbout']);
 Route::get('/contact', [CommonPageController::class, 'showContact']);
 
 
