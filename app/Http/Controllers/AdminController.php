@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ServiceProvider;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -12,11 +14,6 @@ class AdminController extends Controller
 
     return view('admin.dashboard');
   }
-  public function showBooking() {}
-  public function deleteBooking($id) {}
-
-
-
 
   //service provider approvel
   public function serviceProviders()
@@ -53,5 +50,31 @@ class AdminController extends Controller
       ->get();
 
     return view('admin.approved_providers', compact('providers'));
+  }
+
+  public function users()
+  {
+    $currentUserId = Auth::id();
+
+    $users = User::where('role', 'user')
+      ->where('id', '!=', $currentUserId)
+      ->orderBy('created_at', 'desc')
+      ->get();
+
+    return view('admin.view_users', compact('users'));
+  }
+
+
+  public function destroyUser($id)
+  {
+    $user = User::findOrFail($id);
+
+    if ($user->role === 'admin') {
+      return redirect()->route('admin.users')->with('error', 'Cannot delete admin users.');
+    }
+
+    $user->delete();
+
+    return redirect()->route('admin.users')->with('success', 'User deleted successfully.');
   }
 }

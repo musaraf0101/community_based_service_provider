@@ -38,6 +38,12 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     //service provider preview
     Route::get('/providers/{id}', [AdminController::class, 'show'])->name('admin.providers.show');
+
+    // view all users
+    Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
+
+    // delete the user
+    Route::delete('/users/{id}', [AdminController::class, 'destroyUser'])->name('admin.users.destroy');
 });
 
 // User dashboard routes
