@@ -33,34 +33,39 @@
                             @forelse($bookings as $booking)
                             <tr class="hover:bg-gray-50 transition-colors duration-150">
                                 <td class="py-3 px-4">{{ $booking->id }}</td>
-                                <td class="py-3 px-4">{{ optional(optional($booking->serviceProvider)->user)->name ?? 'N/A' }}</td>
+                                <td class="py-3 px-4">
+                                    {{ optional(optional($booking->serviceProvider)->user)->name ?? 'N/A' }}
+                                </td>
                                 <td class="py-3 px-4">
                                     {{ \Carbon\Carbon::parse($booking->booking_date)->format('d M Y') }}
                                 </td>
                                 <td class="py-3 px-4">
                                     @if($booking->status === 'pending')
-                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700">
-                                        Pending
-                                    </span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700">
+                                            Pending
+                                        </span>
                                     @elseif($booking->status === 'completed')
-                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
-                                        Completed
-                                    </span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
+                                            Completed
+                                        </span>
                                     @else
-                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">
-                                        {{ ucfirst($booking->status) }}
-                                    </span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">
+                                            {{ $booking->status }}
+                                        </span>
                                     @endif
                                 </td>
                                 <td class="py-3 px-4 flex space-x-3">
-                                    <a href="{{ optional($booking->serviceProvider) ? route('ratings.create', $booking->serviceProvider->id) : '#' }}" class="text-blue-600 hover:underline">
-                                        Rating
-                                    </a>
-                                    <form method="POST" action="{{ route('bookings.destroy', $booking->id) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:underline">Delete</button>
-                                    </form>
+                                    @if($booking->status === 'completed')
+                                        <a href="{{ optional($booking->serviceProvider) ? route('ratings.create', $booking->serviceProvider->id) : '#' }}" 
+                                           class="text-blue-600 hover:underline">
+                                            Rating
+                                        </a>
+                                        <form method="POST" action="{{ route('bookings.destroy', $booking->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 hover:underline">Delete</button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                             @empty
@@ -72,9 +77,6 @@
                     </table>
                 </div>
             </section>
-
-
         </main>
-
     </div>
-    @endsection
+@endsection
