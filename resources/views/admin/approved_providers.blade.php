@@ -11,6 +11,15 @@
             @if($providers->isEmpty())
             <p class="text-gray-600">No approved service providers found.</p>
             @else
+
+            @if(session('success'))
+            <div class="mb-4 p-3 bg-green-100 text-green-700 rounded">{{ session('success') }}</div>
+            @endif
+
+            @if(session('error'))
+            <div class="mb-4 p-3 bg-red-100 text-red-700 rounded">{{ session('error') }}</div>
+            @endif
+
             <table class="w-full border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                 <thead class="bg-gray-100">
                     <tr>
@@ -35,6 +44,14 @@
                                 class="px-3 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
                                 Preview
                             </a>
+                            <form action="{{ route('admin.providers.destroy', $provider->id) }}" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button
+                                    class="px-3 py-1 border border-red-600 text-red-600 rounded hover:bg-red-600 hover:text-white transition">
+                                    Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

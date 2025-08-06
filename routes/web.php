@@ -38,6 +38,7 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     //service provider preview
     Route::get('/providers/{id}', [AdminController::class, 'show'])->name('admin.providers.show');
+    Route::delete('/providers/{id}', [AdminController::class, 'destroyProvider'])->name('admin.providers.destroy');
 
     // view all users
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');

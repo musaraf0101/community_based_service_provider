@@ -11,7 +11,6 @@ class AdminController extends Controller
 {
   public function showDashboard()
   {
-
     return view('admin.dashboard');
   }
 
@@ -51,6 +50,15 @@ class AdminController extends Controller
 
     return view('admin.approved_providers', compact('providers'));
   }
+
+  public function destroyProvider($id)
+  {
+    $provider = ServiceProvider::findOrFail($id);
+    $provider->user()->delete();
+
+    return redirect()->route('admin.providers')->with('success', 'Service provider deleted successfully.');
+  }
+
 
   public function users()
   {
