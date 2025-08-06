@@ -12,6 +12,7 @@ use App\Http\Middleware\RoleMiddleware;
 //common pages
 Route::get('/', [CommonPageController::class, 'showHome']);
 Route::get('/contact', [CommonPageController::class, 'showContact']);
+Route::get('/view-all-providers',[CommonPageController::class,'showAllProviders']);
 
 
 //auth route
