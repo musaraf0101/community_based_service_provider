@@ -117,7 +117,7 @@
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-half"></i>
-                            <span class="ml-2 text-gray-600 text-xs">(4.5/5)</span>
+                            <span class="ml-2 text-gray-600 text-xs">{{ $provider->ratings()->avg('rating'); }}</span>
                         </div>
 
                         <p class="text-gray-500 text-sm mb-3">

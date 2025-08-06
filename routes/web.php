@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CommonPageController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ServiceProviderController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RoleMiddleware;
@@ -56,4 +57,10 @@ Route::prefix('/user')->middleware(['auth', 'role:user'])->group(function () {
 // service provider dashboard routes
 Route::prefix('/service-provider')->middleware(['auth', 'role:service_provider'])->group(function () {
     Route::get('/dashboard', [ServiceProviderController::class, 'showDashboard'])->name('Service-provider.dashboard');
+});
+
+//rating route
+Route::middleware(['auth'])->group(function () {
+    Route::get('/rate/{provider}', [RatingController::class, 'create'])->name('ratings.create');
+    Route::post('/rate/{provider}', [RatingController::class, 'store'])->name('ratings.store');
 });
