@@ -1,21 +1,15 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/contact">Contact</a>
-        </li>
-      </ul>
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+        <div class="text-indigo-600 text-2xl font-bold">
+            <a href="/">Community Based Service Provider System</a>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+            <a href="/" class="text-gray-700 font-semibold hover:text-indigo-600 transition">Home</a>
+            <a href="/contact" class="text-gray-700 font-semibold hover:text-indigo-600 transition">Contact</a>
+            <a href="/login" class="text-gray-700 font-semibold hover:text-indigo-600 transition">Login</a>
+        </nav>
+        <div class="md:hidden text-gray-700 text-2xl cursor-pointer">
+            <i class="fas fa-bars"></i>
+        </div>
     </div>
-  </div>
-</nav>
+</header>
