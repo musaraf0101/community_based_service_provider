@@ -66,7 +66,7 @@
     @endif
     <form method="POST" action="{{ route('login.submit') }}">
         @csrf
-        <label for="username">Username:</label>
+        <label for="email">User Email:</label>
         <input type="text" id="email" name="email">
 
         <label for="password">Password:</label>
