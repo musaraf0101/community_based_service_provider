@@ -106,7 +106,7 @@
                     @foreach ($providers as $provider)
                     <div class="provider-card bg-white shadow-md rounded-xl flex flex-col h-full p-5"
                         data-location="{{ strtolower($provider->address) }}"
-                        data-profession="{{ strtolower($provider->business_name) }}">
+                        data-profession="{{ strtolower($provider->profession) }}">
 
                         <h5 class="text-lg font-semibold mb-1">{{ $provider->user->name}}</h5>
 
@@ -126,7 +126,19 @@
                             </li>
                             <li class="flex items-center">
                                 <i class="bi bi-person-fill-check mr-1"></i>
-                                Profession: <strong class="ml-1">Profession Name</strong>
+                                Profession: <strong class="ml-1">{{ $provider->profession }}</strong>
+                            </li>
+                            <li class="flex items-center">
+                                <strong class="ml-1 px-2 py-1 rounded-full
+                                    @if($provider->status === 'pending') 
+                                        text-yellow-500 border border-yellow-500
+                                    @elseif($provider->status === 'approved') 
+                                        text-green-600 border border-green-600
+                                    @else 
+                                        text-gray-700 border border-gray-700
+                                    @endif">
+                                    {{ $provider->status }}
+                                </strong>
                             </li>
                         </ul>
 
