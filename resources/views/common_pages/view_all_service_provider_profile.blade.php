@@ -8,7 +8,7 @@
     }
 
     .hero-background {
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://placehold.co/1920x800/222222/FFFFFF?text=Local+Services+Background');
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://media.istockphoto.com/id/508707319/photo/large-team-of-diverse-artisans.jpg?s=612x612&w=0&k=20&c=gsMZUhbnCT6Hhge02-XVq8p35ytWqk_TljBj-Uk6nbQ=');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
