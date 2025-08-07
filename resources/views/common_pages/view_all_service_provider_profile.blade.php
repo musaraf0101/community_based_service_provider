@@ -5,12 +5,10 @@
     body {
         font-family: 'Inter', sans-serif;
         background-color: #f8fafc;
-        /* Light Slate 50 */
     }
 
     .hero-background {
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://placehold.co/1920x800/222222/FFFFFF?text=Local+Services+Background');
-        /* Placeholder image */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -29,9 +27,10 @@
             </p>
         </div>
     </header>
+
     <div class="container mx-auto mt-6 px-4">
         <div class="flex flex-col md:flex-row gap-6">
-            <!-- Sidebar Filter (Left) -->
+            <!-- Sidebar Filter -->
             <div class="w-full md:w-1/4">
                 <div class="bg-white p-5 rounded-lg shadow-md">
                     <h5 class="mb-4 text-lg font-semibold">Services</h5>
@@ -96,11 +95,10 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- Profiles Grid (Right) -->
+            <!-- Profiles Grid -->
             <div class="w-full md:w-3/4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     @foreach ($providers as $provider)
@@ -110,9 +108,9 @@
 
                         <h5 class="text-lg font-semibold mb-1">{{ $provider->user->name}}</h5>
 
-                        <!-- Rating Section -->
+                        <!-- Rating -->
                         <div class="flex items-center text-yellow-400 text-sm mb-2">
-                            <span class="ml-2 text-gray-600 text-xs">Rating: {{ $provider->ratings()->avg('rating'); }} / 5</span>
+                            <span class="ml-2 text-gray-600 text-xs">Rating: {{ number_format($provider->ratings()->avg('rating'), 1) ?? '0.0' }} / 5</span>
                         </div>
 
                         <p class="text-gray-500 text-sm mb-3">
@@ -142,12 +140,15 @@
                             </li>
                         </ul>
 
+                        <!-- Book Button - only show if approved -->
+                        @if($provider->status === 'approved')
                         <div class="mt-auto flex space-x-2">
                             <a href="{{ auth()->check() ? route('providers.book', $provider->id) : route('login', ['redirect_to' => route('providers.book', $provider->id)]) }}"
                                 class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-center text-sm">
                                 <i class="bi bi-calendar-check-fill mr-1"></i> Book Now
                             </a>
                         </div>
+                        @endif
                     </div>
                     @endforeach
                 </div>
@@ -155,11 +156,9 @@
         </div>
     </div>
 
-
-
+    <!-- Filter Toggle Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Toggle filter sections
             document.querySelectorAll('.toggle-filter').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const body = document.getElementById(btn.dataset.toggle + '-options');
@@ -169,7 +168,6 @@
                 });
             });
 
-            // Apply filters
             function applyFilters() {
                 const selectedDistricts = Array.from(document.querySelectorAll('#location-options input:checked')).map(cb => cb.value);
                 const selectedProfessions = Array.from(document.querySelectorAll('#profession-options input:checked')).map(cb => cb.value);
@@ -185,17 +183,14 @@
                 });
             }
 
-            // Listen to checkbox changes
             document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
                 cb.addEventListener('change', applyFilters);
             });
         });
     </script>
 
-
-
-    <!-- Initialize Lucide Icons -->
+    <!-- Lucide Icon Init -->
     <script>
         lucide.createIcons();
     </script>
-    @endsection
+@endsection
