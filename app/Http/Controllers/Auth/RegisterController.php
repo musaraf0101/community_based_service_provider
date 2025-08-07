@@ -23,7 +23,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|string|confirmed|min:6',
             'role' => 'required|in:admin,user,service_provider',
-            'business_name' => 'required_if:role,service_provider',
+            'profession' => 'required_if:role,service_provider',
             'phone' => 'required_if:role,service_provider',
             'address' => 'required_if:role,service_provider',
 
@@ -39,7 +39,7 @@ class RegisterController extends Controller
         if ($request->role === 'service_provider') {
             ServiceProvider::create([
                 'user_id' => $user->id,
-                'business_name' => $request->business_name,
+                'profession' => $request->profession,
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'status' => 'pending',

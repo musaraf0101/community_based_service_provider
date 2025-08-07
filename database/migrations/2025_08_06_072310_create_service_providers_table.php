@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('service_providers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('business_name');
+            $table->string('profession');
             $table->string('phone');
             $table->string('address');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
