@@ -17,8 +17,9 @@
             <thead class="bg-gray-100">
                 <tr>
                     <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Name</th>
-                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Business</th>
-                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Phone</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Service Category</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Location</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Phone Number</th>
                     <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Actions</th>
                 </tr>
             </thead>
@@ -26,16 +27,16 @@
                 @foreach($providers as $provider)
                 <tr class="hover:bg-gray-50 transition">
                     <td class="px-6 py-3 text-gray-800">{{ $provider->user->name }}</td>
-                    <td class="px-6 py-3 text-gray-800">{{ $provider->business_name }}</td>
+                    <td class="px-6 py-3 text-gray-800">{{ $provider->profession }}</td>
+                    <td class="px-6 py-3 text-gray-800">{{ $provider->address }}</td>
                     <td class="px-6 py-3 text-gray-800">{{ $provider->phone }}</td>
                     <td class="px-6 py-3 space-x-2">
-                        {{-- Preview Button --}}
                         <a href="{{ route('admin.providers.show', $provider->id) }}"
                             class="px-3 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
                             Preview
                         </a>
 
-                        {{-- Approve Button --}}
+ 
                         <form action="{{ route('admin.providers.approve', $provider->id) }}" method="POST" class="inline">
                             @csrf
                             <button
@@ -44,7 +45,6 @@
                             </button>
                         </form>
 
-                        {{-- Reject Button --}}
                         <form action="{{ route('admin.providers.reject', $provider->id) }}" method="POST" class="inline">
                             @csrf
                             @method('DELETE')

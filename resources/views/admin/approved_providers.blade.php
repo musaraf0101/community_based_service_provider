@@ -24,9 +24,10 @@
                 <thead class="bg-gray-100">
                     <tr>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Name</th>
-                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Business</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Service Category</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Phone</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Email</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Location</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Joined</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Actions</th>
                     </tr>
@@ -35,9 +36,10 @@
                     @foreach($providers as $provider)
                     <tr class="hover:bg-gray-50 transition">
                         <td class="px-6 py-3 text-gray-800">{{ $provider->user->name }}</td>
-                        <td class="px-6 py-3 text-gray-800">{{ $provider->business_name }}</td>
+                        <td class="px-6 py-3 text-gray-800">{{ $provider->profession }}</td>
                         <td class="px-6 py-3 text-gray-800">{{ $provider->phone }}</td>
                         <td class="px-6 py-3 text-gray-800">{{ $provider->user->email }}</td>
+                        <td class="px-6 py-3 text-gray-800">{{ $provider->address }}</td>
                         <td class="px-6 py-3 text-gray-800">{{ $provider->created_at->format('d M Y') }}</td>
                         <td class="px-6 py-3 space-x-2">
                             <a href="{{ route('admin.providers.show', $provider->id) }}"
