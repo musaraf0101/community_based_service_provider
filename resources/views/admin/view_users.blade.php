@@ -24,7 +24,6 @@
                     <tr>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Name</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Email</th>
-                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Role</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Registered At</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Actions</th>
                     </tr>
@@ -34,7 +33,6 @@
                     <tr class="hover:bg-gray-50 transition">
                         <td class="px-6 py-3 text-gray-800">{{ $user->name }}</td>
                         <td class="px-6 py-3 text-gray-800">{{ $user->email }}</td>
-                        <td class="px-6 py-3 text-gray-800 capitalize">{{ $user->role }}</td>
                         <td class="px-6 py-3 text-gray-800">{{ $user->created_at->format('d M Y') }}</td>
                         <td class="px-6 py-3 space-x-2">
                             @if($user->role !== 'admin')
