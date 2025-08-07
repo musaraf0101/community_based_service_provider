@@ -11,7 +11,9 @@ class AdminController extends Controller
 {
   public function showDashboard()
   {
-    return view('admin.dashboard');
+    $totalUsers = User::where('role', 'user')->count();
+    $totalServiceProviders = User::where('role', 'service_provider')->count();
+    return view('admin.dashboard',compact('totalUsers','totalServiceProviders'));
   }
 
   //service provider approvel

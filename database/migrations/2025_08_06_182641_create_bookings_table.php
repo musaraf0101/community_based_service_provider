@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('service_provider_id')->constrained()->onDelete('cascade');
             $table->date('booking_date');
             $table->time('booking_time');
+            $table->string('phone_number');
+            $table->string('address');  
             $table->string('status')->default('pending');
             $table->timestamps();
         });

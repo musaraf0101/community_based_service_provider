@@ -17,8 +17,8 @@
                     <p class="text-gray-900">{{ $provider->user->email }}</p>
                 </div>
                 <div>
-                    <p class="text-gray-600 font-semibold">Business Name:</p>
-                    <p class="text-gray-900">{{ $provider->business_name }}</p>
+                    <p class="text-gray-600 font-semibold">Profession:</p>
+                    <p class="text-gray-900">{{ $provider->profession }}</p>
                 </div>
                 <div>
                     <p class="text-gray-600 font-semibold">Phone:</p>

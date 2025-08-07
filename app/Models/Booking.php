@@ -15,6 +15,8 @@ class Booking extends Model
         'booking_date',
         'booking_time',
         'status',
+        'phone_number',
+        'address',
     ];
 
     public function user()

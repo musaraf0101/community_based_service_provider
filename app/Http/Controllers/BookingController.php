@@ -26,7 +26,12 @@ class BookingController extends Controller
                 if ($bookingDateTime->isPast()) {
                     $fail('The booking time cannot be in the past.');
                 }
+                if ($bookingDateTime->hour < 8 || $bookingDateTime->hour > 18) {
+                    $fail('Bookings must be between 8:00 AM and 6:00 PM.');
+                }
             },],
+            'phone_number' => ['required', 'digits:10'],
+            'address' => ['required'],
         ]);
 
         $userId = Auth::id();
@@ -40,6 +45,8 @@ class BookingController extends Controller
             'booking_date' => $request->booking_date,
             'booking_time' => $request->booking_time,
             'status' => 'pending',
+            'address' => $request->address,
+            'phone_number' => $request->phone_number
         ]);
 
         return redirect()->route('User.dashboard')->with('success', 'Booking created successfully!');

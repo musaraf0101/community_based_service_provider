@@ -64,7 +64,7 @@ Route::prefix('/service-provider')->middleware(['auth', 'role:service_provider']
     Route::patch('/bookings/{booking}/status', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
 });
 
-Route::middleware(['auth'])->prefix('providers')->group(function () {
+Route::middleware(['auth'])->prefix('/providers')->group(function () {
     Route::get('{provider}/book', [BookingController::class, 'book'])->name('providers.book');
     Route::post('{provider}/book', [BookingController::class, 'store'])->name('providers.book.store');
     Route::get('{provider}/rate', [RatingController::class, 'create'])->name('ratings.create');

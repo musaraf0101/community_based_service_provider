@@ -34,6 +34,8 @@
                                 <th class="px-4 py-3">Date</th>
                                 <th class="px-4 py-3">Time</th>
                                 <th class="px-4 py-3">Status</th>
+                                <th class="px-4 py-3">Location</th>
+                                <th class="px-4 py-3">Phone Number</th>
                                 <th class="px-4 py-3">Action</th>
                             </tr>
                         </thead>
@@ -50,15 +52,15 @@
                                     <span class="text-green-700 bg-green-100 px-3 py-1 rounded-full text-xs font-semibold">Completed</span>
                                     @endif
                                 </td>
+                                <td class="px-4 py-3">{{ $booking->address }}</td>
+                                <td class="px-4 py-3">{{ $booking->phone_number }}</td>
                                 <td class="px-4 py-3 space-x-2 flex justify-center">
-                                    {{-- Delete Button --}}
                                     <form method="POST" action="{{ route('service_provider.bookings.destroy', $booking->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:underline">Delete</button>
                                     </form>
 
-                                    {{-- Update Status --}}
                                     <form action="{{ route('bookings.updateStatus', $booking->id) }}" method="POST" class="flex items-center space-x-2">
                                         @csrf
                                         @method('PATCH')
