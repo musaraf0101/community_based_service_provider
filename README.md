@@ -1,61 +1,200 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Community Based Service Provider
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel web application that connects users with local service providers. Admins manage the platform, users book services, and service providers manage their bookings and profiles.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Admin**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Dashboard overview
+- Review and approve/reject service provider registrations
+- Manage users and service providers (delete)
+- View bookings with status (pending, ongoing, complete)
 
-## Learning Laravel
+**User**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Browse and book approved service providers
+- Edit booking details
+- Manage profile
+- Rate service providers after a completed service
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**Service Provider**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Register and await admin approval before logging in
+- Accept/manage incoming bookings
+- Manage profile and update working status
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Tech Stack
 
-### Premium Partners
+- **Backend:** PHP 8.2+, Laravel 12
+- **Frontend:** Blade, Tailwind CSS, Vite
+- **Database:** MySQL
+- **Other:** Laravel Tinker, Laravel Sail (optional)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## Requirements
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PHP >= 8.2
+- Composer
+- Node.js >= 18 & npm
+- SQLite (bundled with PHP) **or** MySQL/MariaDB
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Setup
 
-## Security Vulnerabilities
+### 1. Clone the repository
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+git clone <your-repo-url>
+cd community_based_service_provider
+```
+
+### 2. Install PHP dependencies
+
+```bash
+composer install
+```
+
+### 3. Install Node dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure environment
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 5. Configure the database
+
+**Option A — SQLite (default, no extra setup needed)**
+
+The `.env.example` already uses SQLite. Make sure the database file exists:
+
+```bash
+touch database/database.sqlite
+```
+
+**Option B — MySQL**
+
+Edit `.env` and update the following:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=community_service_provider
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+
+Then create the database in MySQL:
+
+```sql
+CREATE DATABASE community_service_provider;
+```
+
+### 6. Run migrations
+
+```bash
+php artisan migrate
+```
+
+### 7. Create a storage symlink
+
+```bash
+php artisan storage:link
+```
+
+---
+
+## Running the Application
+
+### Development (all services at once)
+
+```bash
+composer run dev
+```
+
+This starts the Laravel server, queue worker, log viewer, and Vite dev server concurrently.
+
+### Or start manually in separate terminals
+
+```bash
+# Terminal 1 — Laravel server
+php artisan serve
+
+# Terminal 2 — Vite (CSS/JS hot reload)
+npm run dev
+
+# Terminal 3 — Queue worker (for jobs/notifications)
+php artisan queue:listen --tries=1
+```
+
+Visit [http://localhost:8000](http://localhost:8000)
+
+---
+
+## Creating an Admin Account
+
+After running migrations, register a user through the UI, then manually set the role to `admin` in the database (or via Tinker):
+
+```bash
+php artisan tinker
+```
+
+```php
+\App\Models\User::where('email', 'your@email.com')->update(['role' => 'admin']);
+```
+
+---
+
+## Building for Production
+
+```bash
+npm run build
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+---
+
+## Running Tests
+
+```bash
+composer run test
+```
+
+---
+
+## Project Structure
+
+```
+app/
+  Http/Controllers/     # AdminController, UserController, ServiceProviderController, BookingController, RatingController
+  Models/               # User, ServiceProvider, Booking, Rating
+  Http/Middleware/       # RoleMiddleware (admin, user, service_provider)
+database/
+  migrations/           # Users, ServiceProviders, Ratings, Bookings tables
+resources/views/
+  admin/                # Admin dashboard & management pages
+  auth/                 # Login & registration
+  common_pages/         # Home, contact, provider listings
+  components/           # Navbar, footer, sidebars
+```
+
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
